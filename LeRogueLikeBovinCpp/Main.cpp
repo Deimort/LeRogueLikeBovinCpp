@@ -10,7 +10,7 @@ int main()
 
 	while (window.isOpen())
 	{
-		
+		// Git on t'encule
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
