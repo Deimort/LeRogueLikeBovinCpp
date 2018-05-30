@@ -19,6 +19,7 @@ int main()
 				std::cout << "Click" << std::endl;
 		}
 
+		/*Test de commit*/
 		window.clear();
 		window.draw(shape);
 		window.display();
