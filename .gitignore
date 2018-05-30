@@ -7,9 +7,6 @@
 *.userosscache
 *.sln.docstates
 
-LeRogueLikeBovinCpp/LeRogueLikeBovinCpp.vcxproj
-LeRogueLikeBovinCpp/LeRogueLikeBovinCpp.vcxproj.filters
-
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

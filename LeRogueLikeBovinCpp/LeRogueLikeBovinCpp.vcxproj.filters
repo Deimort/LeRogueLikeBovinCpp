@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Src\roguelike">
+      <UniqueIdentifier>{2510a5a8-5b11-4831-b646-ec306dc18360}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{595d337e-921c-471a-85b0-bfe29d1d0298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\roguelike\states">
+      <UniqueIdentifier>{aaf9dd2e-15f3-477f-a4d5-cee196558650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\roguelike">
+      <UniqueIdentifier>{d196ff42-c06b-4101-a93e-fb7966e6feee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\roguelike\states">
+      <UniqueIdentifier>{6d707ff4-8edd-49f1-9343-e7c8c623ba21}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="InGame.cpp">
+      <Filter>Src\roguelike\states</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="RogueLikeGame.cpp">
+      <Filter>Src\roguelike</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Src\roguelike\states</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameState.h">
+      <Filter>Fichiers d%27en-tête\roguelike\states</Filter>
+    </ClInclude>
+    <ClInclude Include="InGame.h">
+      <Filter>Fichiers d%27en-tête\roguelike\states</Filter>
+    </ClInclude>
+    <ClInclude Include="RogueLikeGame.h">
+      <Filter>Fichiers d%27en-tête\roguelike</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
