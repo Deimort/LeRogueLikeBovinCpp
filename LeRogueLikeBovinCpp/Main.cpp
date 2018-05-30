@@ -10,7 +10,7 @@ int main()
 
 	while (window.isOpen())
 	{
-		// Cill
+		
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -20,7 +20,7 @@ int main()
 				std::cout << "Click" << std::endl;
 		}
 
-		/*Test de commit*/
+		
 		window.clear();
 		window.draw(shape);
 		window.display();
