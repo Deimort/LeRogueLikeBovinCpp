@@ -10,6 +10,7 @@ int main()
 
 	while (window.isOpen())
 	{
+		// Cill
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
