@@ -99,6 +99,9 @@
     <ClCompile Include="SolidHandled.cpp">
       <Filter>Src\roguelike\interfaces</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicSolidHandled.cpp">
+      <Filter>Src\roguelike\interfaces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
@@ -148,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="SolidHandled.h">
       <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicSolidHandled.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

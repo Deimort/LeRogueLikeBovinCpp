@@ -2,10 +2,10 @@
 
 #include <iostream>
 #include "DrawableHandled.h"
+#include "DynamicSolidHandled.h"
 #include "SFML/Graphics.hpp"
-#include "DynamicSolid.h"
 
-class Ball : public DynamicSolid, DrawableHandled
+class Ball : public DynamicSolidHandled, DrawableHandled
 {
 public:
 	Ball(float x, float y, float w, float h, DrawableHandler &drawableHandler, UpdatableHandler &updatableHandler, SolidHandler &solidHandler);

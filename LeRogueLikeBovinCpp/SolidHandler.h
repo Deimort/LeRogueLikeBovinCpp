@@ -3,6 +3,7 @@
 #include <vector>
 #include "DynamicSolid.h"
 #include "Quadtree.h"
+#include <iostream>
 
 class SolidHandler
 {

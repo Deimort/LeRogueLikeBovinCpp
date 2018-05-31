@@ -126,6 +126,7 @@
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="DrawableHandled.cpp" />
     <ClCompile Include="DynamicSolid.cpp" />
+    <ClCompile Include="DynamicSolidHandled.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="InGame.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="Ball.h" />
     <ClInclude Include="DrawableHandled.h" />
     <ClInclude Include="DynamicSolid.h" />
+    <ClInclude Include="DynamicSolidHandled.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InGame.h" />
     <ClInclude Include="MainMenu.h" />

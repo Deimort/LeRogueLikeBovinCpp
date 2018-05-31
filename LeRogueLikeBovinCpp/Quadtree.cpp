@@ -77,7 +77,7 @@ int Quadtree::getIndex(Solid  &solid)
 
 void Quadtree::insert(Solid &solid)
 {
-	if (m_nodes.at(0) != nullptr)
+	if (m_nodes.size() != 0) // Old: if (m_nodes.at(0) != nullptr)
 	{
 		int index = getIndex(solid);
 
@@ -119,7 +119,7 @@ void Quadtree::insert(Solid &solid)
 std::vector<Solid*> Quadtree::retrieve(std::vector<Solid*> &returnObjects, Solid &solid)
 {
 	int index = getIndex(solid);
-	if (index != -1 && m_nodes.at(0) != nullptr)
+	if (index != -1 && m_nodes.size() != 0)
 	{
 		m_nodes.at(index)->retrieve(returnObjects, solid);
 	}

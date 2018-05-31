@@ -3,7 +3,7 @@
 
 
 Ball::Ball(float x, float y, float w, float h, DrawableHandler &drawableHandler, UpdatableHandler &updatableHandler, SolidHandler &solidHandler) :
-	DynamicSolid(x, y, w, h, solidHandler, updatableHandler), 
+	DynamicSolidHandled(x, y, w, h, solidHandler, updatableHandler), 
 	DrawableHandled(drawableHandler)
 {
 	m_circle = sf::CircleShape(w);

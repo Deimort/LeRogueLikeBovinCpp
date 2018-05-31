@@ -12,6 +12,7 @@ SolidHandler::~SolidHandler()
 
 void SolidHandler::addStaticSolid(Solid* staticSolid)
 {
+
 	m_solidList.push_back(staticSolid);
 }
 

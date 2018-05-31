@@ -4,6 +4,7 @@
 #include "DrawableHandler.h"
 #include "SolidHandler.h"
 #include "Ball.h"
+#include "Wall.h"
 
 class InGame : public GameState
 {
