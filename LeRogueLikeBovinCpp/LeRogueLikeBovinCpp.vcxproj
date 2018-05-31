@@ -125,12 +125,15 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="DrawableHandled.cpp" />
+    <ClCompile Include="DynamicSolid.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="InGame.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="DrawableHandler.cpp" />
     <ClCompile Include="RogueLikeGame.cpp" />
+    <ClCompile Include="Solid.cpp" />
+    <ClCompile Include="SolidHandler.cpp" />
     <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="UpdatableHandler.cpp" />
     <ClCompile Include="UpdatableHandled.cpp" />
@@ -138,11 +141,14 @@
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="DrawableHandled.h" />
+    <ClInclude Include="DynamicSolid.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InGame.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="DrawableHandler.h" />
     <ClInclude Include="RogueLikeGame.h" />
+    <ClInclude Include="Solid.h" />
+    <ClInclude Include="SolidHandler.h" />
     <ClInclude Include="Updatable.h" />
     <ClInclude Include="UpdatableHandler.h" />
     <ClInclude Include="UpdatableHandled.h" />

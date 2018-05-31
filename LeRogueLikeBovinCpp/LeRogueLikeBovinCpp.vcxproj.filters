@@ -69,11 +69,20 @@
     <ClCompile Include="UpdatableHandled.cpp">
       <Filter>Src\roguelike\interfaces</Filter>
     </ClCompile>
-    <ClCompile Include="DrawableHandled.cpp">
-      <Filter>Src</Filter>
-    </ClCompile>
     <ClCompile Include="Ball.cpp">
       <Filter>Src\roguelike\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Solid.cpp">
+      <Filter>Src\roguelike\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableHandled.cpp">
+      <Filter>Src\roguelike\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="SolidHandler.cpp">
+      <Filter>Src\roguelike\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicSolid.cpp">
+      <Filter>Src\roguelike\interfaces</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,11 +110,20 @@
     <ClInclude Include="UpdatableHandled.h">
       <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="DrawableHandled.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Ball.h">
       <Filter>Fichiers d%27en-tête\roguelike\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="Solid.h">
+      <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="SolidHandler.h">
+      <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableHandled.h">
+      <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicSolid.h">
+      <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
