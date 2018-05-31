@@ -123,17 +123,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="DrawableHandled.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="InGame.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="DrawableHandler.cpp" />
     <ClCompile Include="RogueLikeGame.cpp" />
+    <ClCompile Include="Updatable.cpp" />
+    <ClCompile Include="UpdatableHandler.cpp" />
+    <ClCompile Include="UpdatableHandled.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ball.h" />
+    <ClInclude Include="DrawableHandled.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InGame.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="DrawableHandler.h" />
     <ClInclude Include="RogueLikeGame.h" />
+    <ClInclude Include="Updatable.h" />
+    <ClInclude Include="UpdatableHandler.h" />
+    <ClInclude Include="UpdatableHandled.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

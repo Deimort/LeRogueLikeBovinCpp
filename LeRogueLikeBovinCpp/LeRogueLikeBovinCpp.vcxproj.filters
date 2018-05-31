@@ -28,6 +28,18 @@
     <Filter Include="Fichiers d%27en-tête\roguelike\states">
       <UniqueIdentifier>{6d707ff4-8edd-49f1-9343-e7c8c623ba21}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\roguelike\interfaces">
+      <UniqueIdentifier>{72184b41-6270-442c-8778-f0fa63e97c37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\roguelike\interfaces">
+      <UniqueIdentifier>{6f0c2558-e37b-4632-ba35-3830e40585f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\roguelike\tests">
+      <UniqueIdentifier>{22e13380-6026-46ed-b158-54ffff1e542b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\roguelike\tests">
+      <UniqueIdentifier>{2c3bfa88-9ee6-482d-9b49-100bd7803e1c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InGame.cpp">
@@ -45,6 +57,24 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>Src\roguelike\states</Filter>
     </ClCompile>
+    <ClCompile Include="Updatable.cpp">
+      <Filter>Src\roguelike\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdatableHandler.cpp">
+      <Filter>Src\roguelike\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableHandler.cpp">
+      <Filter>Src\roguelike\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdatableHandled.cpp">
+      <Filter>Src\roguelike\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableHandled.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Src\roguelike\tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
@@ -58,6 +88,24 @@
     </ClInclude>
     <ClInclude Include="MainMenu.h">
       <Filter>Fichiers d%27en-tête\roguelike\states</Filter>
+    </ClInclude>
+    <ClInclude Include="Updatable.h">
+      <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdatableHandler.h">
+      <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableHandler.h">
+      <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdatableHandled.h">
+      <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableHandled.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Fichiers d%27en-tête\roguelike\tests</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 
 InGame::InGame(sf::RenderWindow* gameContainer) : GameState(gameContainer)
 {
+	Ball* ball = new Ball(m_drawableHandler, m_updatableHandler);
 }
 
 InGame::~InGame()
@@ -25,10 +26,13 @@ void InGame::update()
 			m_continue = false;
 		}
 	}
+
+	m_updatableHandler.updateAll();
 }
 
 void InGame::render()
 {
 	m_gameContainer->clear();
+	m_drawableHandler.drawAll(m_gameContainer);
 	m_gameContainer->display();
 }
