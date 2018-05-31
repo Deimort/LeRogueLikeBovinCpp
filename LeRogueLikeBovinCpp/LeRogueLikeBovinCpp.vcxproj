@@ -131,12 +131,14 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="DrawableHandler.cpp" />
+    <ClCompile Include="Quadtree.cpp" />
     <ClCompile Include="RogueLikeGame.cpp" />
     <ClCompile Include="Solid.cpp" />
     <ClCompile Include="SolidHandler.cpp" />
     <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="UpdatableHandler.cpp" />
     <ClCompile Include="UpdatableHandled.cpp" />
+    <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
@@ -146,12 +148,14 @@
     <ClInclude Include="InGame.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="DrawableHandler.h" />
+    <ClInclude Include="Quadtree.h" />
     <ClInclude Include="RogueLikeGame.h" />
     <ClInclude Include="Solid.h" />
     <ClInclude Include="SolidHandler.h" />
     <ClInclude Include="Updatable.h" />
     <ClInclude Include="UpdatableHandler.h" />
     <ClInclude Include="UpdatableHandled.h" />
+    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

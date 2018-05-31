@@ -18,42 +18,42 @@ bool Solid::isColliding(Solid &other)
 	return m_boundingBox.intersects(other.m_boundingBox);
 }
 
-float Solid::getX() 
+float Solid::getX() const
 {
 	return m_boundingBox.left;
 }
 
-float Solid::getY()
+float Solid::getY() const
 {
 	return m_boundingBox.top;
 }
 
-float Solid::getWidth()
+float Solid::getWidth() const
 {
 	return m_boundingBox.width;
 }
 
-float Solid::getHeight()
+float Solid::getHeight() const
 {
 	return m_boundingBox.height;
 }
 
-float Solid::getCenterX()
+float Solid::getCenterX() const
 {
 	return m_boundingBox.left + m_boundingBox.width / 2;
 }
 
-float Solid::getCenterY()
+float Solid::getCenterY() const
 {
 	return m_boundingBox.top + m_boundingBox.height / 2;
 }
 
-float Solid::getRight()
+float Solid::getRight() const
 {
 	return m_boundingBox.left + m_boundingBox.width;
 }
 
-float Solid::getBottom()
+float Solid::getBottom() const
 {
 	return m_boundingBox.top + m_boundingBox.height;
 }

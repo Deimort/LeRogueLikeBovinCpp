@@ -2,6 +2,7 @@
 
 #include "DynamicSolid.h"
 #include <vector>
+#include "Quadtree.h"
 
 class SolidHandler
 {
@@ -17,5 +18,7 @@ public:
 private:
 	std::vector<Solid*> m_solidList;
 	std::vector<DynamicSolid*> m_dynamicSolidList;
+
+	Quadtree m_quadtree;
 };
 

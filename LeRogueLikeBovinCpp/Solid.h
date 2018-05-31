@@ -12,14 +12,14 @@ public:
 	virtual bool isColliding(Solid &other);
 	
 	/*GETTERS*/
-	float getX();
-	float getY();
-	float getWidth();
-	float getHeight();
-	float getCenterX();
-	float getCenterY();
-	float getRight();
-	float getBottom();
+	float getX() const;
+	float getY() const;
+	float getWidth() const;
+	float getHeight() const;
+	float getCenterX() const;
+	float getCenterY() const;
+	float getRight() const;
+	float getBottom() const;
 	
 	/*SETTERS*/
 	void setLocation(float x, float y);
