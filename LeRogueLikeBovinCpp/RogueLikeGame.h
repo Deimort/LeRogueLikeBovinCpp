@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
-#include "GameState.h"
 #include "InGame.h"
+#include "MainMenu.h"
 #include <SFML/Graphics.hpp>
 
 class RogueLikeGame

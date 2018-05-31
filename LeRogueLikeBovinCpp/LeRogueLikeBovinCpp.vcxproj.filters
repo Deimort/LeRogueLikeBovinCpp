@@ -42,6 +42,9 @@
     <ClCompile Include="GameState.cpp">
       <Filter>Src\roguelike\states</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Src\roguelike\states</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
@@ -52,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="RogueLikeGame.h">
       <Filter>Fichiers d%27en-tête\roguelike</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Fichiers d%27en-tête\roguelike\states</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

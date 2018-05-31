@@ -11,7 +11,7 @@ InGame::~InGame()
 
 void InGame::init()
 {
-
+	GameState::init();
 }
 
 void InGame::update()
@@ -21,6 +21,7 @@ void InGame::update()
 	{
 		if (e.type == sf::Event::EventType::Closed)
 		{
+			m_nextState = -1; // Exit
 			m_continue = false;
 		}
 	}

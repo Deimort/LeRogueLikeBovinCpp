@@ -18,19 +18,23 @@ int GameState::start()
 	init();
 	while (m_continue)
 	{
-		// TODO framerate
-		update();
+		m_timeBuffer += m_clock.restart().asMicroseconds();
+		while (m_timeBuffer >= FRAME_LENGTH)
+		{
+			m_timeBuffer -= FRAME_LENGTH;
+			update();
+		}
 		render();
 	}
-	return -1; // return -1 to Exit
+	return m_nextState; // return -1 to Exit
 }
 
-/*
+
 void GameState::init()
 {
-
+	m_clock.restart();
 }
-
+/*
 void GameState::update()
 {
 
