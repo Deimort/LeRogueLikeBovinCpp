@@ -1,7 +1,7 @@
 #pragma once
 
-#include "DynamicSolid.h"
 #include <vector>
+#include "DynamicSolid.h"
 #include "Quadtree.h"
 
 class SolidHandler

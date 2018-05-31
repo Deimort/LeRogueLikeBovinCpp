@@ -134,6 +134,7 @@
     <ClCompile Include="Quadtree.cpp" />
     <ClCompile Include="RogueLikeGame.cpp" />
     <ClCompile Include="Solid.cpp" />
+    <ClCompile Include="SolidHandled.cpp" />
     <ClCompile Include="SolidHandler.cpp" />
     <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="UpdatableHandler.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="Quadtree.h" />
     <ClInclude Include="RogueLikeGame.h" />
     <ClInclude Include="Solid.h" />
+    <ClInclude Include="SolidHandled.h" />
     <ClInclude Include="SolidHandler.h" />
     <ClInclude Include="Updatable.h" />
     <ClInclude Include="UpdatableHandler.h" />

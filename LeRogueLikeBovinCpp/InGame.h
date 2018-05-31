@@ -2,6 +2,7 @@
 #include "GameState.h"
 #include "UpdatableHandler.h"
 #include "DrawableHandler.h"
+#include "SolidHandler.h"
 #include "Ball.h"
 
 class InGame : public GameState
@@ -17,6 +18,7 @@ protected:
 
 	UpdatableHandler m_updatableHandler;
 	DrawableHandler m_drawableHandler;
+	SolidHandler m_solidHandler;
 	std::vector<void*> m_createdInstance;
 };
 

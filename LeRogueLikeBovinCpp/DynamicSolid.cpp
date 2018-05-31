@@ -2,8 +2,9 @@
 
 
 
-DynamicSolid::DynamicSolid(float x, float y, float w, float h) :
-	Solid(x, y, w, h)
+DynamicSolid::DynamicSolid(float x, float y, float w, float h, SolidHandler &solidHanlder, UpdatableHandler &updatableHandler) :
+	SolidHandled(x, y, w, h, solidHanlder),
+	UpdatableHandled(updatableHandler)
 {
 }
 

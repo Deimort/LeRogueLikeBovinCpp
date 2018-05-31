@@ -2,9 +2,11 @@
 
 
 
-Ball::Ball(DrawableHandler &drawableHandler, UpdatableHandler &updatableHandler) : UpdatableHandled(updatableHandler), DrawableHandled(drawableHandler)
+Ball::Ball(float x, float y, float w, float h, DrawableHandler &drawableHandler, UpdatableHandler &updatableHandler, SolidHandler &solidHandler) :
+	DynamicSolid(x, y, w, h, solidHandler, updatableHandler), 
+	DrawableHandled(drawableHandler)
 {
-	m_circle = sf::CircleShape(5);
+	m_circle = sf::CircleShape(w);
 }
 
 
@@ -19,5 +21,11 @@ void Ball::draw(sf::RenderTarget &target, sf::RenderStates states) const
 
 void Ball::update() 
 {
-	m_circle.move(1, 1);
+	moveBy(0, 1);
+	m_circle.move(0, 1);
+}
+
+void Ball::onCollide(Solid &other)
+{
+	std::cout << "Collide" << std::endl;
 }

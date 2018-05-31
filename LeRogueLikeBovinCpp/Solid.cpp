@@ -15,7 +15,7 @@ Solid::~Solid()
 
 bool Solid::isColliding(Solid &other)
 {
-	return m_boundingBox.intersects(other.m_boundingBox);
+	return m_boundingBox.intersects(other.m_boundingBox) && &other != this;
 }
 
 float Solid::getX() const

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Solid.h"
-#include "Updatable.h"
+#include "SolidHandled.h"
+#include "UpdatableHandled.h"
 
-class DynamicSolid : public Solid, Updatable
+class DynamicSolid : public SolidHandled, UpdatableHandled
 {
 public:
-	DynamicSolid(float x, float y, float w, float h);
+	DynamicSolid(float x, float y, float w, float h, SolidHandler &solidHandler, UpdatableHandler &updatableHandler);
 	~DynamicSolid();
 
 	virtual void update() override;
