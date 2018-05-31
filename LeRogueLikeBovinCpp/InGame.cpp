@@ -3,11 +3,15 @@
 InGame::InGame(sf::RenderWindow* gameContainer) : GameState(gameContainer)
 {
 	Ball* ball = new Ball(m_drawableHandler, m_updatableHandler);
+	m_createdInstance.push_back(ball); // TODO trouver un meilleur moyen de gérer les delete
 }
 
 InGame::~InGame()
 {
-
+	for (int i(0); i < m_createdInstance.size(); i++)
+	{
+		delete m_createdInstance.at(i);
+	}
 }
 
 void InGame::init()

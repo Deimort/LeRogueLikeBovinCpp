@@ -17,6 +17,6 @@ protected:
 
 	UpdatableHandler m_updatableHandler;
 	DrawableHandler m_drawableHandler;
-
+	std::vector<void*> m_createdInstance;
 };
 
