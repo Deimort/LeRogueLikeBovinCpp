@@ -5,6 +5,8 @@
 #include "SolidHandler.h"
 #include "Ball.h"
 #include "Wall.h"
+#include "Player.h"
+#include <iostream>
 
 class InGame : public GameState
 {

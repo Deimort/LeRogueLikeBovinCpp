@@ -11,7 +11,7 @@ public:
 
 	virtual void update() override;
 
-private:
+protected:
 
 	float xVel = 0, yVel = 0;
 };

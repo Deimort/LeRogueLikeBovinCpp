@@ -46,6 +46,24 @@
     <Filter Include="Fichiers d%27en-tête\roguelike\interfaces\quadtree">
       <UniqueIdentifier>{b72dcf36-9286-4265-b470-49412ef32bf8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\roguelike\entities">
+      <UniqueIdentifier>{659bbf3c-0c80-448f-8a8c-e56fdfa7219c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\roguelike\solids">
+      <UniqueIdentifier>{5271f7ea-59e0-4713-ae47-622b3dd1f46c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\roguelike\solids">
+      <UniqueIdentifier>{38722128-8105-438e-836b-97a7103ecb52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\roguelike\entities">
+      <UniqueIdentifier>{3f5c969e-3399-493d-906c-609f7146c56d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\roguelike\entities\players">
+      <UniqueIdentifier>{1152a469-0cdf-4eb1-93b8-31779d4a8a4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\roguelike\entities\players">
+      <UniqueIdentifier>{6130ba2b-390c-4f00-8e48-62da6d607e32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InGame.cpp">
@@ -93,14 +111,23 @@
     <ClCompile Include="Quadtree.cpp">
       <Filter>Src\roguelike\interfaces\quadtree</Filter>
     </ClCompile>
-    <ClCompile Include="Wall.cpp">
-      <Filter>Src\roguelike\tests</Filter>
-    </ClCompile>
     <ClCompile Include="SolidHandled.cpp">
       <Filter>Src\roguelike\interfaces</Filter>
     </ClCompile>
     <ClCompile Include="DynamicSolidHandled.cpp">
       <Filter>Src\roguelike\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
+      <Filter>Src\roguelike\solids</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Src\roguelike\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Src\roguelike\entities\players</Filter>
+    </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>Src\roguelike\entities\players</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -146,14 +173,23 @@
     <ClInclude Include="Quadtree.h">
       <Filter>Fichiers d%27en-tête\roguelike\interfaces\quadtree</Filter>
     </ClInclude>
-    <ClInclude Include="Wall.h">
-      <Filter>Fichiers d%27en-tête\roguelike\tests</Filter>
-    </ClInclude>
     <ClInclude Include="SolidHandled.h">
       <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
     </ClInclude>
     <ClInclude Include="DynamicSolidHandled.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>Fichiers d%27en-tête\roguelike\solids</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Fichiers d%27en-tête\roguelike\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Fichiers d%27en-tête\roguelike\entities\players</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>Fichiers d%27en-tête\roguelike\entities\players</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
