@@ -33,4 +33,5 @@ void RogueLikeGame::initStateList()
 {
 	m_statesList.push_back(new MainMenu(m_gameContainer));
 	m_statesList.push_back(new InGame(m_gameContainer));
+	m_statesList.push_back(new OptionMenu(m_gameContainer));
 }

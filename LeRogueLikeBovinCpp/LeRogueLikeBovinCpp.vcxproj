@@ -124,16 +124,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="ButtonInput.cpp" />
     <ClCompile Include="DrawableHandled.cpp" />
     <ClCompile Include="DynamicSolid.cpp" />
     <ClCompile Include="DynamicSolidHandled.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="InGame.cpp" />
+    <ClCompile Include="InputConfig.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="DrawableHandler.cpp" />
+    <ClCompile Include="OptionMenu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Quadtree.cpp" />
     <ClCompile Include="RogueLikeGame.cpp" />
@@ -147,15 +150,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="ButtonInput.h" />
     <ClInclude Include="DrawableHandled.h" />
     <ClInclude Include="DynamicSolid.h" />
     <ClInclude Include="DynamicSolidHandled.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InGame.h" />
+    <ClInclude Include="InputConfig.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="DrawableHandler.h" />
+    <ClInclude Include="OptionMenu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Quadtree.h" />
     <ClInclude Include="RogueLikeGame.h" />

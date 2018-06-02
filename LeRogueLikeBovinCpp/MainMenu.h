@@ -1,6 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include <string>
+#include "InputConfig.h" //TODO Remove
 
 class MainMenu : public GameState
 {
@@ -13,7 +14,6 @@ protected:
 	void update() override;
 	void render() override;
 	sf::Text m_homeMessage;
-	sf::Font m_font;
 
 };
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "SFML/Graphics.hpp"
+#include "InputConfig.h"
 
 class GameState
 {
@@ -14,7 +15,11 @@ protected:
 	bool m_continue = true;
 	int m_nextState = -1;
 
-	virtual void init();
+	InputConfig m_inputConfig;
+
+	sf::Font m_font;
+
+	virtual void init() = 0;
 	virtual void update() = 0;
 	virtual void render() = 0;
 

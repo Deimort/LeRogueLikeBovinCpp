@@ -5,6 +5,7 @@
 GameState::GameState(sf::RenderWindow* gameContainer)
 {
 	m_gameContainer = gameContainer;
+	m_font.loadFromFile("assets/dpcomic.ttf");
 }
 
 
@@ -15,6 +16,10 @@ GameState::~GameState()
 int GameState::start()
 {
 	m_continue = true;
+	m_clock.restart();
+
+	m_inputConfig.loadInputConfig("config/config.txt");
+
 	init();
 	while (m_continue)
 	{
@@ -30,10 +35,7 @@ int GameState::start()
 }
 
 
-void GameState::init()
-{
-	m_clock.restart();
-}
+
 /*
 void GameState::update()
 {

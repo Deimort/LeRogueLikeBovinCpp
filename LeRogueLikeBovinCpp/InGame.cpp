@@ -19,8 +19,6 @@ InGame::~InGame()
 
 void InGame::init()
 {
-	GameState::init();
-
 	for (int i(0); i < 8; i++) {
 		std::cout << i << " : " << sf::Joystick::isConnected(i) << std::endl;
 	}

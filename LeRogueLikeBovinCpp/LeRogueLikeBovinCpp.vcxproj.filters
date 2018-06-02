@@ -64,6 +64,21 @@
     <Filter Include="Fichiers d%27en-tête\roguelike\entities\players">
       <UniqueIdentifier>{6130ba2b-390c-4f00-8e48-62da6d607e32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\roguelike\inputs">
+      <UniqueIdentifier>{7ab8fa62-e698-4c24-b35b-898d285bb101}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\roguelike\states\menu">
+      <UniqueIdentifier>{0179d564-6307-49da-9612-df1db3932883}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\roguelike\states\menu">
+      <UniqueIdentifier>{ecab1424-26c0-44c7-aceb-05def034169c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\roguelike\inputs">
+      <UniqueIdentifier>{c472148e-50fd-4253-bd2e-2fd5055484a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\roguelike\states\menu\widget">
+      <UniqueIdentifier>{bf5e7b8f-f74f-45d6-b3d6-166f38dbb7d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InGame.cpp">
@@ -76,9 +91,6 @@
       <Filter>Src\roguelike</Filter>
     </ClCompile>
     <ClCompile Include="GameState.cpp">
-      <Filter>Src\roguelike\states</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenu.cpp">
       <Filter>Src\roguelike\states</Filter>
     </ClCompile>
     <ClCompile Include="Updatable.cpp">
@@ -126,8 +138,20 @@
     <ClCompile Include="Player.cpp">
       <Filter>Src\roguelike\entities\players</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Src\roguelike\states\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionMenu.cpp">
+      <Filter>Src\roguelike\states\menu</Filter>
+    </ClCompile>
     <ClCompile Include="InputHandler.cpp">
-      <Filter>Src\roguelike\entities\players</Filter>
+      <Filter>Src\roguelike\inputs</Filter>
+    </ClCompile>
+    <ClCompile Include="InputConfig.cpp">
+      <Filter>Src\roguelike\inputs</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonInput.cpp">
+      <Filter>Src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -139,9 +163,6 @@
     </ClInclude>
     <ClInclude Include="RogueLikeGame.h">
       <Filter>Fichiers d%27en-tête\roguelike</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenu.h">
-      <Filter>Fichiers d%27en-tête\roguelike\states</Filter>
     </ClInclude>
     <ClInclude Include="Updatable.h">
       <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
@@ -176,9 +197,6 @@
     <ClInclude Include="SolidHandled.h">
       <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="DynamicSolidHandled.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Wall.h">
       <Filter>Fichiers d%27en-tête\roguelike\solids</Filter>
     </ClInclude>
@@ -188,8 +206,23 @@
     <ClInclude Include="Player.h">
       <Filter>Fichiers d%27en-tête\roguelike\entities\players</Filter>
     </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Fichiers d%27en-tête\roguelike\states\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionMenu.h">
+      <Filter>Fichiers d%27en-tête\roguelike\states\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicSolidHandled.h">
+      <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
+    </ClInclude>
     <ClInclude Include="InputHandler.h">
-      <Filter>Fichiers d%27en-tête\roguelike\entities\players</Filter>
+      <Filter>Fichiers d%27en-tête\roguelike\inputs</Filter>
+    </ClInclude>
+    <ClInclude Include="InputConfig.h">
+      <Filter>Fichiers d%27en-tête\roguelike\inputs</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonInput.h">
+      <Filter>Fichiers d%27en-tête\roguelike\states\menu\widget</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

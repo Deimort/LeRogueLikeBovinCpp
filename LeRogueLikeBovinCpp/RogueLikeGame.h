@@ -2,6 +2,7 @@
 #include <vector>
 #include "InGame.h"
 #include "MainMenu.h"
+#include "OptionMenu.h"
 #include <SFML/Graphics.hpp>
 
 class RogueLikeGame

@@ -25,6 +25,16 @@ void Player::update()
 
 	player.move(xVel, yVel);
 	xVel = input.getXAxisValue();
+	if (input.isJumping()) 
+	{
+		moveBy(0, -10);
+		player.move(xVel, -10);
+	}
+	else if (input.isMovingDown())
+	{
+		moveBy(0, 10);
+		player.move(xVel, 10);
+	}
 }
 
 void Player::onCollide(Solid &other)

@@ -3,6 +3,7 @@
 #include "SFML/Window.hpp"
 #include <iostream>
 #include <math.h>
+#include "InputConfig.h"
 
 class InputHandler
 {
@@ -11,8 +12,9 @@ public:
 	~InputHandler();
 
 	float getXAxisValue();
-	//bool isJumping();
-	//bool isMovingDown();
+	float getYAxisValue();
+	bool isJumping();
+	bool isMovingDown();
 
 private:
 	sf::Keyboard::Key up = sf::Keyboard::Z;
