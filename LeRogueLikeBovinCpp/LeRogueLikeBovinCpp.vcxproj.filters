@@ -76,7 +76,10 @@
     <Filter Include="Fichiers d%27en-tête\roguelike\inputs">
       <UniqueIdentifier>{c472148e-50fd-4253-bd2e-2fd5055484a3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\roguelike\states\menu\widget">
+    <Filter Include="Src\roguelike\states\menu\widgets">
+      <UniqueIdentifier>{f196b6d0-e6ec-4b18-a0fe-651351320ed9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\roguelike\states\menu\widgets">
       <UniqueIdentifier>{bf5e7b8f-f74f-45d6-b3d6-166f38dbb7d2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -151,7 +154,7 @@
       <Filter>Src\roguelike\inputs</Filter>
     </ClCompile>
     <ClCompile Include="ButtonInput.cpp">
-      <Filter>Src</Filter>
+      <Filter>Src\roguelike\states\menu\widgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -222,7 +225,7 @@
       <Filter>Fichiers d%27en-tête\roguelike\inputs</Filter>
     </ClInclude>
     <ClInclude Include="ButtonInput.h">
-      <Filter>Fichiers d%27en-tête\roguelike\states\menu\widget</Filter>
+      <Filter>Fichiers d%27en-tête\roguelike\states\menu\widgets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

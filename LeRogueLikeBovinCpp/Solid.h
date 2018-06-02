@@ -20,13 +20,19 @@ public:
 	float getCenterY() const;
 	float getRight() const;
 	float getBottom() const;
-	
+	float getLastX() const;
+	float getLastY() const;
+	float getLastRight() const;
+	float getLastBottom() const;
+
+
 	/*SETTERS*/
-	void setLocation(float x, float y);
-	void moveBy(float x, float y);
-	void setSize(float w, float h);
+	virtual void setLocation(float x, float y);
+	virtual void moveBy(float x, float y);
+	virtual void setSize(float w, float h);
 
 private:
 	sf::FloatRect m_boundingBox;
+	float m_lastXPosition, m_lastYPosition;
 };
 

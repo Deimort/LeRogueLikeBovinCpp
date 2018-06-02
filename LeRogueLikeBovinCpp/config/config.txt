@@ -1,12 +1,12 @@
 //CONTROLLER_ID
 controllerId -1;
 //KEYBOARD
-keyConfig down 3;
+keyConfig down 18;
 keyConfig interact 0;
-keyConfig jump 1;
-keyConfig left 0;
-keyConfig right 0;
-keyConfig up 0;
+keyConfig jump 57;
+keyConfig left 16;
+keyConfig right 3;
+keyConfig up 25;
 //GAMEPAD
 buttonConfig down 2;
 buttonConfig jump 1;

@@ -7,15 +7,18 @@
 class Player : public Entity
 {
 public:
-	Player(float x, float y, DrawableHandler &drawableHandler, UpdatableHandler &updatableHandler, SolidHandler &solidHandler);
+	Player(float x, float y, DrawableHandler &drawableHandler, UpdatableHandler &updatableHandler, SolidHandler &solidHandler, InputConfig &config);
 	~Player();
 
 	void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 	void update() override;
 	void onCollide(Solid &other) override;
+	void moveBy(float x, float y) override;
 
 private:
-	InputHandler input;
+	InputHandler m_inputHandler;
 	sf::RectangleShape player;
+
+	void applyGravity();
 };
 

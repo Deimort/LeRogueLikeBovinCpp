@@ -58,6 +58,26 @@ float Solid::getBottom() const
 	return m_boundingBox.top + m_boundingBox.height;
 }
 
+float Solid::getLastX() const
+{
+	return m_lastXPosition;
+}
+
+float Solid::getLastY() const
+{
+	return m_lastYPosition;
+}
+
+float Solid::getLastRight() const
+{
+	return getLastX() + getWidth();
+}
+
+float Solid::getLastBottom() const
+{
+	return getLastY() + getHeight();
+}
+
 void Solid::setLocation(float x, float y)
 {
 	m_boundingBox.left = x;
@@ -66,6 +86,8 @@ void Solid::setLocation(float x, float y)
 
 void Solid::moveBy(float x, float y)
 {
+	m_lastXPosition = m_boundingBox.left;
+	m_lastYPosition = m_boundingBox.top;
 	m_boundingBox.left += x;
 	m_boundingBox.top += y;
 }

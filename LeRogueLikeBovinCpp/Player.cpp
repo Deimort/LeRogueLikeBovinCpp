@@ -2,8 +2,9 @@
 
 
 
-Player::Player(float x, float y, DrawableHandler &drawableHandler, UpdatableHandler &updatableHandler, SolidHandler &solidHandler) :
-	Entity(x, y, 64, 64, drawableHandler, updatableHandler, solidHandler), 
+Player::Player(float x, float y, DrawableHandler &drawableHandler, UpdatableHandler &updatableHandler, SolidHandler &solidHandler, InputConfig &config) :
+	Entity(x, y, 64, 64, drawableHandler, updatableHandler, solidHandler),
+	m_inputHandler(config),
 	player(sf::Vector2f(64,64))
 {
 	player.setPosition(x, y);
@@ -23,21 +24,32 @@ void Player::update()
 {
 	Entity::update();
 
-	player.move(xVel, yVel);
-	xVel = input.getXAxisValue();
-	if (input.isJumping()) 
+	xVel = m_inputHandler.getXAxisValue();
+	if (m_inputHandler.isJumping()) 
 	{
-		moveBy(0, -10);
-		player.move(xVel, -10);
+		yVel = -5;
 	}
-	else if (input.isMovingDown())
+	else
 	{
-		moveBy(0, 10);
-		player.move(xVel, 10);
+		applyGravity();
 	}
 }
 
 void Player::onCollide(Solid &other)
 {
+	std::cout << "Player entered in collision" << std::endl;
+}
 
+void Player::applyGravity()
+{
+	if (yVel <= 3)
+	{
+		yVel += 0.3f;
+	}
+}
+
+void Player::moveBy(float x, float y)
+{
+	Solid::moveBy(x, y);
+	player.move(x, y);
 }

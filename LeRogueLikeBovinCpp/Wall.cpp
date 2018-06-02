@@ -22,5 +22,11 @@ void Wall::draw(sf::RenderTarget &target, sf::RenderStates states) const
 
 void Wall::onCollide(Solid &other)
 {
-
+	if (other.getLastBottom() <= getY())
+	{
+		while (other.getBottom() > getY())
+		{
+			other.moveBy(0, -1);
+		}
+	}
 }

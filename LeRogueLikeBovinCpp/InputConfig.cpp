@@ -28,12 +28,12 @@ int InputConfig::getButtonFor(std::string inputName)
 
 void InputConfig::setKey(std::string inputName, sf::Keyboard::Key input)
 {
-	m_keyboardInput.insert(std::pair<std::string, sf::Keyboard::Key>(inputName, input));
+	m_keyboardInput[inputName] = input;
 }
 
 void InputConfig::setButton(std::string buttonName, int value)
 {
-	m_gamePadInput.insert(std::pair<std::string, int>(buttonName, value));
+	m_gamePadInput[buttonName] = value;
 }
 
 void InputConfig::setCurrentController(int controllerIndex)

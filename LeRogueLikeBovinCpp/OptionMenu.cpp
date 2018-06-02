@@ -36,10 +36,12 @@ void OptionMenu::update()
 			if (m_currentButton != nullptr)
 			{
 				m_currentButton->setKey(m_inputConfig, e.key.code);
+				std::cout << m_inputConfig.getKeyFor("jump") << std::endl;
 				m_currentButton = nullptr;
 			}
 			else if (e.key.code == sf::Keyboard::Space)
 			{
+				m_inputConfig.saveInputConfig("config/config.txt");
 				m_nextState = 0;
 				m_continue = false;
 			}

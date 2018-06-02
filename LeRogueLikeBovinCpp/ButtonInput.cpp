@@ -55,9 +55,9 @@ void ButtonInput::draw(sf::RenderTarget & target, sf::RenderStates states) const
 
 void ButtonInput::setKey(InputConfig & inputConfig, sf::Keyboard::Key key)
 {
-	inputConfig.setKey(m_inputName, key);
-	std::cout << key << std::endl;
-	m_keyText.setString(std::to_string(key));
+	inputConfig.setKey(m_inputName, key); // Ca ne marche pas
+	std::cout << m_inputName << ": " << key << std::endl;
+	m_keyText.setString(std::to_string(inputConfig.getKeyFor(m_inputName)));
 }
 
 void ButtonInput::setButton(InputConfig & inputConfig, int button)

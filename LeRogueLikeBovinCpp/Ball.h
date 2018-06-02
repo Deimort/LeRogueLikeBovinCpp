@@ -15,6 +15,7 @@ public:
 
 	void update() override;
 	void onCollide(Solid &other) override;
+	void moveBy(float x, float y) override;
 
 private:
 	sf::CircleShape m_circle;
