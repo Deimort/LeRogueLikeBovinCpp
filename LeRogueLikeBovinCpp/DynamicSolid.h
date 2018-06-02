@@ -13,6 +13,6 @@ public:
 
 protected:
 
-	float xVel = 0, yVel = 0;
+	float m_xVel = 0, m_yVel = 0;
 };
 

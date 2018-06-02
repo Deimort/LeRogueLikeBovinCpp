@@ -2,12 +2,6 @@
 
 InGame::InGame(sf::RenderWindow* gameContainer) : GameState(gameContainer)
 {
-	Ball* ball = new Ball(30,5,10,10,m_drawableHandler, m_updatableHandler, m_solidHandler);
-	m_createdInstance.push_back(ball); // TODO trouver un meilleur moyen de gérer les delete
-	Wall* wall = new Wall(0, 480, 640, 48, m_drawableHandler, m_solidHandler);	
-	m_createdInstance.push_back(wall);
-	Player* player = new Player(100, 200, m_drawableHandler, m_updatableHandler, m_solidHandler, m_inputConfig);
-	m_createdInstance.push_back(player);
 }
 
 InGame::~InGame()
@@ -23,6 +17,17 @@ void InGame::init()
 	for (int i(0); i < 8; i++) {
 		std::cout << i << " : " << sf::Joystick::isConnected(i) << std::endl;
 	}
+
+	Wall* wall = new Wall(0, 480, 640, 48, m_drawableHandler, m_solidHandler);
+	m_createdInstance.push_back(wall);
+	Wall* wall2 = new Wall(0, 320, 300, 48, m_drawableHandler, m_solidHandler);
+	m_createdInstance.push_back(wall);
+	Wall* wall3 = new Wall(340, 320, 100, 48, m_drawableHandler, m_solidHandler);
+	m_createdInstance.push_back(wall);
+	Wall* wall4 = new Wall(540, 320, 100, 48, m_drawableHandler, m_solidHandler);
+	m_createdInstance.push_back(wall);
+	Player* player = new Player(100, 200, m_drawableHandler, m_updatableHandler, m_solidHandler, m_inputConfig);
+	m_createdInstance.push_back(player);
 }
 
 void InGame::update()

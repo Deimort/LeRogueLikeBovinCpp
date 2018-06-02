@@ -14,5 +14,5 @@ DynamicSolid::~DynamicSolid()
 
 void DynamicSolid::update()
 {
-	moveBy(xVel, yVel);
+	moveBy(m_xVel, m_yVel);
 }

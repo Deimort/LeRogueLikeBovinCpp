@@ -20,5 +20,7 @@ private:
 	sf::RectangleShape player;
 
 	void applyGravity();
+
+	bool m_isOnGround, m_wasOnGround;
 };
 

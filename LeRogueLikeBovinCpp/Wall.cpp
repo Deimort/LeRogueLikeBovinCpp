@@ -24,9 +24,21 @@ void Wall::onCollide(Solid &other)
 {
 	if (other.getLastBottom() <= getY())
 	{
-		while (other.getBottom() > getY())
-		{
-			other.moveBy(0, -1);
-		}
+		other.moveBy(0, getY() - other.getBottom());
+	}
+
+	if (other.getLastY() >= getBottom())
+	{
+		other.moveBy(0, getBottom() - other.getY());
+	}
+
+	if (other.getLastRight() <= getX())
+	{
+		other.moveBy(getX() - other.getRight(), 0);
+	}
+
+	if (other.getLastX() >= getRight())
+	{
+		other.moveBy(getRight() - other.getX(), 0);
 	}
 }
