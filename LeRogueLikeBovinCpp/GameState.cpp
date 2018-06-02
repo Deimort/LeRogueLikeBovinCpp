@@ -18,7 +18,7 @@ int GameState::start()
 	m_continue = true;
 	m_clock.restart();
 
-	m_inputConfig.loadInputConfig("config/config.txt");
+	m_inputConfig.loadInputConfig("config/input.cfg");
 
 	init();
 	while (m_continue)

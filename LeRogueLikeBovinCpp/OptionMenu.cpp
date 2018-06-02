@@ -41,7 +41,7 @@ void OptionMenu::update()
 			}
 			else if (e.key.code == sf::Keyboard::Space)
 			{
-				m_inputConfig.saveInputConfig("config/config.txt");
+				m_inputConfig.saveInputConfig("config/input.cfg");
 				m_nextState = 0;
 				m_continue = false;
 			}

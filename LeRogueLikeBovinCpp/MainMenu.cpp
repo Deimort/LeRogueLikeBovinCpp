@@ -17,8 +17,8 @@ MainMenu::~MainMenu()
 void MainMenu::init()
 {
 	InputConfig testConfig;
-	testConfig.loadInputConfig("config/config.txt");
-	testConfig.saveInputConfig("config/config.txt");
+	testConfig.loadInputConfig("config/input.cfg");
+	testConfig.saveInputConfig("config/input.cfg");
 }
 
 void MainMenu::update()

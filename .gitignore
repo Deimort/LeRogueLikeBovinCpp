@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 /LeRogueLikeBovinCpp/RCa17420
+/LeRogueLikeBovinCpp/config/*
