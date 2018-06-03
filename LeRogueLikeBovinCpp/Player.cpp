@@ -26,7 +26,7 @@ void Player::update()
 	m_xVel = m_inputHandler.getXAxisValue() * 5;
 	if (m_inputHandler.isJumping() && m_isOnGround) 
 	{
-		m_yVel = -7;
+		m_yVel = -10;
 	}
 	else
 	{
@@ -46,17 +46,17 @@ void Player::onCollide(Solid &other)
 
 void Player::applyGravity()
 {
-	if (m_yVel > 0 && m_wasOnGround && !m_isOnGround)
+	if (m_yVel > 0 && m_wasOnGround && !m_isOnGround) // Si le joueur tombe d'une plateforme
 	{
 		m_yVel = 0;
 	}
-	if (m_yVel < 7)
+	if (m_yVel < 10)
 	{
-		m_yVel += 0.3f;
+		m_yVel += 0.5f;
 	}
-	if(m_yVel >= 7)
+	if(m_yVel >= 10)
 	{
-		m_yVel = 7;
+		m_yVel = 10;
 	}
 }
 

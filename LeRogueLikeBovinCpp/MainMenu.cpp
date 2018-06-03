@@ -4,7 +4,7 @@
 
 MainMenu::MainMenu(sf::RenderWindow* gameContainer) : GameState(gameContainer)
 {
-	m_homeMessage = sf::Text("<Press -space- to launch>", m_font);
+	m_homeMessage = sf::Text("<Press -space- to launch>\n-o- for options", m_font);
 	m_homeMessage.setOrigin(sf::Vector2f(m_homeMessage.getLocalBounds().width / 2, m_homeMessage.getLocalBounds().height / 2));
 	m_homeMessage.setPosition(m_gameContainer->getSize().x / 2, m_gameContainer->getSize().y / 2);
 }

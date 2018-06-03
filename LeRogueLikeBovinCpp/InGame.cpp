@@ -26,8 +26,12 @@ void InGame::init()
 	m_createdInstance.push_back(wall);
 	Wall* wall4 = new Wall(540, 320, 100, 48, m_drawableHandler, m_solidHandler);
 	m_createdInstance.push_back(wall);
-	Player* player = new Player(100, 200, m_drawableHandler, m_updatableHandler, m_solidHandler, m_inputConfig);
-	m_createdInstance.push_back(player);
+	m_player = new Player(100, 200, m_drawableHandler, m_updatableHandler, m_solidHandler, m_inputConfig);
+	m_createdInstance.push_back(m_player);
+
+	m_gameView = sf::View(sf::Vector2f(m_player->getCenterX(), m_player->getCenterY()), sf::Vector2f(1280, 720));
+	m_minimap = sf::View(sf::Vector2f(m_player->getCenterX(), m_player->getCenterY()), sf::Vector2f(2560, 1440));
+	m_minimap.setViewport(sf::FloatRect(sf::Vector2f(0.85, 0), sf::Vector2f(0.10, 0.10)));
 }
 
 void InGame::update()
@@ -44,11 +48,16 @@ void InGame::update()
 
 	m_updatableHandler.updateAll();
 	m_solidHandler.collideAll();
+	m_gameView.setCenter(m_player->getCenterX(), m_player->getCenterY());
+	m_minimap.setCenter(m_player->getCenterX(), m_player->getCenterY());
 }
 
 void InGame::render()
 {
 	m_gameContainer->clear();
+	m_gameContainer->setView(m_gameView); // Affichage du jeu
+	m_drawableHandler.drawAll(m_gameContainer);
+	m_gameContainer->setView(m_minimap); // Affichage de la carte
 	m_drawableHandler.drawAll(m_gameContainer);
 	m_gameContainer->display();
 }
