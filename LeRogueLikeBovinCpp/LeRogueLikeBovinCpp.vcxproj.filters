@@ -156,6 +156,9 @@
     <ClCompile Include="ButtonInput.cpp">
       <Filter>Src\roguelike\states\menu\widgets</Filter>
     </ClCompile>
+    <ClCompile Include="DropdownMenu.cpp">
+      <Filter>Src\roguelike\states\menu\widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
@@ -225,6 +228,9 @@
       <Filter>Fichiers d%27en-tête\roguelike\inputs</Filter>
     </ClInclude>
     <ClInclude Include="ButtonInput.h">
+      <Filter>Fichiers d%27en-tête\roguelike\states\menu\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="DropdownMenu.h">
       <Filter>Fichiers d%27en-tête\roguelike\states\menu\widgets</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,9 +2,10 @@
 
 
 
-OptionMenu::OptionMenu(sf::RenderWindow* gameContainer):
-	GameState(gameContainer)
-{	
+OptionMenu::OptionMenu(sf::RenderWindow* gameContainer) :
+	GameState(gameContainer),
+	m_controllerSelector(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, "Select a controlller")
+{
 }
 
 
@@ -19,6 +20,17 @@ void OptionMenu::init()
 	m_buttonList.push_back(ButtonInput("down", m_gameContainer->getSize().x/2 -150, 100, 300, 50, m_inputConfig, m_font));
 	m_buttonList.push_back(ButtonInput("left", m_gameContainer->getSize().x / 2 - 150, 150, 300, 50, m_inputConfig, m_font));
 	m_buttonList.push_back(ButtonInput("right", m_gameContainer->getSize().x / 2 - 150, 200, 300, 50, m_inputConfig, m_font));
+	
+	m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, "Select a controlller");
+	for (int i = 0; i < 8; i++)
+	{
+		if (sf::Joystick::isConnected(i))
+		{
+			m_controllerSelector.addValue(sf::Joystick::getIdentification(i).name, i);
+		}
+		
+	}
+	
 }
 
 void OptionMenu::update()
@@ -29,6 +41,11 @@ void OptionMenu::update()
 		if (e.type == sf::Event::EventType::MouseButtonPressed)
 		{
 			selectButtonInput(e.mouseButton.x, e.mouseButton.y);
+
+			// Controller switch
+			m_controllerSelector.onClick(e.mouseButton.x, e.mouseButton.y);
+			m_inputConfig.setCurrentController(m_controllerSelector.getSelectedValue());
+			std::cout << m_inputConfig.getCurrentController() << std::endl;
 		}
 
 		else if (e.type == sf::Event::EventType::KeyPressed)
@@ -66,6 +83,7 @@ void OptionMenu::render()
 	{
 		m_gameContainer->draw(m_buttonList.at(i));
 	}
+	m_gameContainer->draw(m_controllerSelector);
 	m_gameContainer->display();
 }
 

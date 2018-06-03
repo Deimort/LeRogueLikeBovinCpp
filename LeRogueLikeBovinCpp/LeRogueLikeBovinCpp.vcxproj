@@ -126,6 +126,7 @@
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="ButtonInput.cpp" />
     <ClCompile Include="DrawableHandled.cpp" />
+    <ClCompile Include="DropdownMenu.cpp" />
     <ClCompile Include="DynamicSolid.cpp" />
     <ClCompile Include="DynamicSolidHandled.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="Ball.h" />
     <ClInclude Include="ButtonInput.h" />
     <ClInclude Include="DrawableHandled.h" />
+    <ClInclude Include="DropdownMenu.h" />
     <ClInclude Include="DynamicSolid.h" />
     <ClInclude Include="DynamicSolidHandled.h" />
     <ClInclude Include="Entity.h" />
