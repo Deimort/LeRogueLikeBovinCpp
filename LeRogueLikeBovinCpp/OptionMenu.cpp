@@ -15,6 +15,8 @@ OptionMenu::~OptionMenu()
 
 void OptionMenu::init()
 {
+	m_buttonList.clear();
+
 	m_buttonList.push_back(ButtonInput("jump", m_gameContainer->getSize().x/2 -150, 0, 300, 50, m_inputConfig, m_font));
 	m_buttonList.push_back(ButtonInput("up", m_gameContainer->getSize().x/2 -150, 50, 300, 50, m_inputConfig, m_font));
 	m_buttonList.push_back(ButtonInput("down", m_gameContainer->getSize().x/2 -150, 100, 300, 50, m_inputConfig, m_font));
@@ -61,7 +63,6 @@ void OptionMenu::update()
 			if (m_currentButton != nullptr)
 			{
 				m_currentButton->setKey(m_inputConfig, e.key.code);
-				std::cout << m_inputConfig.getKeyFor("jump") << std::endl;
 				m_currentButton = nullptr;
 			}
 			else if (e.key.code == sf::Keyboard::Space)

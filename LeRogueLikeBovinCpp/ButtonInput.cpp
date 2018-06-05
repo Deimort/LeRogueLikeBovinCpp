@@ -9,7 +9,7 @@ ButtonInput::ButtonInput(std::string inputName, float x, float y, float w, float
 	m_buttonCell(sf::Vector2f(w / 3, h)),
 	m_inputName(inputName),
 	m_nameText(inputName, font, 16U),
-	m_keyText(std::to_string(inputConfig.getKeyFor(inputName)), font, 16U),
+	m_keyText(InputConfig::getInputFromKey(inputConfig.getKeyFor(inputName)), font, 16U),
 	m_buttonText(std::to_string(inputConfig.getButtonFor(inputName)), font, 16U),
 	m_font(font)
 
@@ -55,9 +55,9 @@ void ButtonInput::draw(sf::RenderTarget & target, sf::RenderStates states) const
 
 void ButtonInput::setKey(InputConfig & inputConfig, sf::Keyboard::Key key)
 {
-	inputConfig.setKey(m_inputName, key); // Ca ne marche pas
+	inputConfig.setKey(m_inputName, key);
 	std::cout << m_inputName << ": " << key << std::endl;
-	m_keyText.setString(std::to_string(inputConfig.getKeyFor(m_inputName)));
+	m_keyText.setString(InputConfig::getInputFromKey(key));
 }
 
 void ButtonInput::setButton(InputConfig & inputConfig, int button)

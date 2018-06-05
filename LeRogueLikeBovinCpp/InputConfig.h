@@ -25,6 +25,7 @@ public:
 
 	void loadInputConfig(std::string path);
 	void saveInputConfig(std::string path);
+	static std::string getInputFromKey(int keyValue);
 
 private:
 	int m_currentController;
