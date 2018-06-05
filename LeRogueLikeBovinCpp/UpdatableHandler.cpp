@@ -23,3 +23,8 @@ void UpdatableHandler::updateAll()
 		m_updatableList.at(i)->update();
 	}
 }
+
+void UpdatableHandler::clear()
+{
+	m_updatableList.clear();
+}

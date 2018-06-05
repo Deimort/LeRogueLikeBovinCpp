@@ -15,6 +15,7 @@ public:
 	void addDynamicSolid(DynamicSolid* dynamicSolid);
 
 	void collideAll();
+	void clear();
 
 private:
 	std::vector<Solid*> m_solidList;

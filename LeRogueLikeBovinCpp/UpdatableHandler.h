@@ -11,6 +11,7 @@ public:
 
 	void addUpdatable(Updatable* updatable);
 	void updateAll();
+	void clear();
 
 private:
 	std::vector<Updatable*> m_updatableList;

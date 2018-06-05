@@ -12,6 +12,7 @@ public:
 
 	void addDrawable(sf::Drawable* drawable);
 	void drawAll(sf::RenderWindow* gameContainer);
+	void clear();
 
 private:
 	std::vector<sf::Drawable*> m_drawableList;

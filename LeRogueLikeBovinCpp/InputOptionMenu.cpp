@@ -1,19 +1,19 @@
-#include "OptionMenu.h"
+#include "InputOptionMenu.h"
 
 
 
-OptionMenu::OptionMenu(sf::RenderWindow* gameContainer) :
+InputOptionMenu::InputOptionMenu(sf::RenderWindow* gameContainer) :
 	GameState(gameContainer),
 	m_controllerSelector(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, "Select a controlller", -1)
 {
 }
 
 
-OptionMenu::~OptionMenu()
+InputOptionMenu::~InputOptionMenu()
 {
 }
 
-void OptionMenu::init()
+void InputOptionMenu::init()
 {
 	m_buttonList.clear();
 
@@ -43,7 +43,7 @@ void OptionMenu::init()
 	
 }
 
-void OptionMenu::update()
+void InputOptionMenu::update()
 {
 	sf::Event e;
 	while (m_gameContainer->pollEvent(e))
@@ -65,7 +65,7 @@ void OptionMenu::update()
 				m_currentButton->setKey(m_inputConfig, e.key.code);
 				m_currentButton = nullptr;
 			}
-			else if (e.key.code == sf::Keyboard::Space)
+			else if (e.key.code == sf::Keyboard::Escape)
 			{
 				m_inputConfig.saveInputConfig("config/input.cfg");
 				m_nextState = 0;
@@ -85,7 +85,7 @@ void OptionMenu::update()
 	}
 }
 
-void OptionMenu::render()
+void InputOptionMenu::render()
 {
 	m_gameContainer->clear();
 	for (int i(0); i < m_buttonList.size(); i++)
@@ -96,7 +96,7 @@ void OptionMenu::render()
 	m_gameContainer->display();
 }
 
-void OptionMenu::selectButtonInput(float x, float y)
+void InputOptionMenu::selectButtonInput(float x, float y)
 {
 	for (int i(0); i < m_buttonList.size(); i++)
 	{

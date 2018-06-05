@@ -10,8 +10,7 @@ ButtonInput::ButtonInput(std::string inputName, float x, float y, float w, float
 	m_inputName(inputName),
 	m_nameText(inputName, font, 16U),
 	m_keyText(InputConfig::getInputFromKey(inputConfig.getKeyFor(inputName)), font, 16U),
-	m_buttonText(std::to_string(inputConfig.getButtonFor(inputName)), font, 16U),
-	m_font(font)
+	m_buttonText(std::to_string(inputConfig.getButtonFor(inputName)), font, 16U)
 
 {
 	m_nameCell.setPosition(x, y);

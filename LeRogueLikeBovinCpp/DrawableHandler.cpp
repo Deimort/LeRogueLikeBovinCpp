@@ -23,3 +23,8 @@ void DrawableHandler::drawAll(sf::RenderWindow* gameContainer)
 		gameContainer->draw(*(m_drawableList.at(i)));
 	}
 }
+
+void DrawableHandler::clear()
+{
+	m_drawableList.clear();
+}

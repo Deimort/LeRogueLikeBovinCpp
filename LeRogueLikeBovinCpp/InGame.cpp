@@ -34,7 +34,6 @@ void InGame::init()
 	m_minimap.setViewport(sf::FloatRect(sf::Vector2f(0.85, 0), sf::Vector2f(0.10, 0.10)));
 
 	m_inputConfig.loadInputConfig("config/input.cfg");
-	std::cout << m_inputConfig.getCurrentController() << std::endl;
 }
 
 void InGame::update()
@@ -46,6 +45,17 @@ void InGame::update()
 		{
 			m_nextState = -1; // Exit
 			m_continue = false;
+		}
+
+		if (e.type == sf::Event::EventType::KeyReleased)
+		{
+			if (e.key.code == sf::Keyboard::Key::Escape)
+			{
+				m_nextState = 0; // Goto mainMenu
+				deleteAll();
+				m_continue = false;
+				
+			}
 		}
 	}
 
@@ -63,4 +73,13 @@ void InGame::render()
 	m_gameContainer->setView(m_minimap); // Affichage de la carte
 	m_drawableHandler.drawAll(m_gameContainer);
 	m_gameContainer->display();
+
+	m_gameContainer->setView(m_gameContainer->getDefaultView());
+}
+
+void InGame::deleteAll()
+{
+	m_drawableHandler.clear();
+	m_solidHandler.clear();
+	m_updatableHandler.clear();
 }

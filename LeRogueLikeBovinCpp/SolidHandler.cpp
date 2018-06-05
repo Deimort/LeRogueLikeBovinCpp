@@ -52,3 +52,9 @@ void SolidHandler::collideAll()
 		
 	}
 }
+
+void SolidHandler::clear()
+{
+	m_dynamicSolidList.clear();
+	m_solidList.clear();
+}

@@ -27,5 +27,7 @@ private:
 	Player* m_player;
 	sf::View m_gameView;
 	sf::View m_minimap;
+
+	void deleteAll();
 };
 
