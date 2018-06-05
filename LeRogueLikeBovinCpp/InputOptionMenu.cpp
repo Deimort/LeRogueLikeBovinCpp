@@ -1,21 +1,22 @@
-#include "InputOptionMenu.h"
+#include "OptionMenu.h"
 
 
 
-InputOptionMenu::InputOptionMenu(sf::RenderWindow* gameContainer) :
+OptionMenu::OptionMenu(sf::RenderWindow* gameContainer) :
 	GameState(gameContainer),
 	m_controllerSelector(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, "Select a controlller", -1)
 {
 }
 
 
-InputOptionMenu::~InputOptionMenu()
+OptionMenu::~OptionMenu()
 {
 }
 
-void InputOptionMenu::init()
+void OptionMenu::init()
 {
 	m_buttonList.clear();
+
 	m_buttonList.push_back(ButtonInput("jump", m_gameContainer->getSize().x/2 -150, 0, 300, 50, m_inputConfig, m_font));
 	m_buttonList.push_back(ButtonInput("up", m_gameContainer->getSize().x/2 -150, 50, 300, 50, m_inputConfig, m_font));
 	m_buttonList.push_back(ButtonInput("down", m_gameContainer->getSize().x/2 -150, 100, 300, 50, m_inputConfig, m_font));
@@ -25,14 +26,13 @@ void InputOptionMenu::init()
 	int currentController = m_inputConfig.getCurrentController();
 	if (currentController == -1 || !sf::Joystick::isConnected(currentController))
 	{
-		m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, "Keyboard", -1);
+		m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, "Select a controlller", -1);
 	}
 	else
 	{
 		m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, sf::Joystick::getIdentification(currentController).name, currentController);
 	}
 	
-	m_controllerSelector.addValue("Keyboard", -1);
 	for (int i = 0; i < 8; i++)
 	{
 		if (sf::Joystick::isConnected(i))
@@ -43,7 +43,7 @@ void InputOptionMenu::init()
 	
 }
 
-void InputOptionMenu::update()
+void OptionMenu::update()
 {
 	sf::Event e;
 	while (m_gameContainer->pollEvent(e))
@@ -63,7 +63,6 @@ void InputOptionMenu::update()
 			if (m_currentButton != nullptr)
 			{
 				m_currentButton->setKey(m_inputConfig, e.key.code);
-				std::cout << m_inputConfig.getKeyFor("jump") << std::endl;
 				m_currentButton = nullptr;
 			}
 			else if (e.key.code == sf::Keyboard::Space)
@@ -86,7 +85,7 @@ void InputOptionMenu::update()
 	}
 }
 
-void InputOptionMenu::render()
+void OptionMenu::render()
 {
 	m_gameContainer->clear();
 	for (int i(0); i < m_buttonList.size(); i++)
@@ -97,7 +96,7 @@ void InputOptionMenu::render()
 	m_gameContainer->display();
 }
 
-void InputOptionMenu::selectButtonInput(float x, float y)
+void OptionMenu::selectButtonInput(float x, float y)
 {
 	for (int i(0); i < m_buttonList.size(); i++)
 	{
