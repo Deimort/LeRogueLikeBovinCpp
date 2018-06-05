@@ -19,7 +19,6 @@ void MainMenu::init()
 {
 	InputConfig testConfig;
 	m_currentButton = 0;
-	m_buttonsList[0].setSelected(true);
 
 	testConfig.loadInputConfig("config/input.cfg");
 	testConfig.saveInputConfig("config/input.cfg");
@@ -65,6 +64,7 @@ void MainMenu::update()
 
 	if (m_inputHandler.isJumping() || sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 	{
+		m_buttonsList[m_currentButton].setSelected(false);
 		m_nextState = m_buttonsList[m_currentButton].getValue();
 		m_continue = false;
 	}
