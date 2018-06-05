@@ -32,6 +32,9 @@ void InGame::init()
 	m_gameView = sf::View(sf::Vector2f(m_player->getCenterX(), m_player->getCenterY()), sf::Vector2f(1280, 720));
 	m_minimap = sf::View(sf::Vector2f(m_player->getCenterX(), m_player->getCenterY()), sf::Vector2f(2560, 1440));
 	m_minimap.setViewport(sf::FloatRect(sf::Vector2f(0.85, 0), sf::Vector2f(0.10, 0.10)));
+
+	m_inputConfig.loadInputConfig("config/input.cfg");
+	std::cout << m_inputConfig.getCurrentController() << std::endl;
 }
 
 void InGame::update()

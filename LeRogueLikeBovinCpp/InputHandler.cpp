@@ -14,15 +14,40 @@ InputHandler::~InputHandler()
 
 float InputHandler::getXAxisValue()
 {
+	int controllerId = m_inputConfig->getCurrentController();
 	float axisValue(0);
 
-	if (sf::Keyboard::isKeyPressed(m_inputConfig->getKeyFor("left")))
+	/*
+		Keyboard section
+	*/
+	if (controllerId == -1 || !sf::Joystick::isConnected(controllerId))
 	{
-		axisValue -= 1;
+		if (sf::Keyboard::isKeyPressed(m_inputConfig->getKeyFor("left")))
+		{
+			axisValue -= 1;
+		}
+		if (sf::Keyboard::isKeyPressed(m_inputConfig->getKeyFor("right")))
+		{
+			axisValue += 1;
+		}
 	}
-	if (sf::Keyboard::isKeyPressed(m_inputConfig->getKeyFor("right")))
+
+	/*
+		Joystick section
+	*/
+	else
 	{
-		axisValue += 1;
+		axisValue = (sf::Joystick::getAxisPosition(controllerId, sf::Joystick::X) + sf::Joystick::getAxisPosition(controllerId, sf::Joystick::PovX)) / 100;
+		if (axisValue > 1)
+			axisValue = 1;
+
+		if (axisValue < -1)
+			axisValue = -1;
+
+		if (abs(axisValue) <= 0.1f)
+		{
+			axisValue = 0;
+		}
 	}
 
 	return axisValue;
@@ -37,7 +62,20 @@ float InputHandler::getYAxisValue()
 
 bool InputHandler::isJumping()
 {
-	return sf::Keyboard::isKeyPressed(m_inputConfig->getKeyFor("jump"));
+	int controllerId = m_inputConfig->getCurrentController();
+	float axisValue(0);
+
+	/*
+	Keyboard section
+	*/
+	if (controllerId == -1 || !sf::Joystick::isConnected(controllerId))
+	{
+		return sf::Keyboard::isKeyPressed(m_inputConfig->getKeyFor("jump"));
+	}
+	else
+	{
+		return sf::Joystick::isButtonPressed(controllerId, m_inputConfig->getButtonFor("jump"));
+	}
 }
 
 bool InputHandler::isMovingDown()

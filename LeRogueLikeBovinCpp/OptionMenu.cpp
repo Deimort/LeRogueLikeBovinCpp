@@ -4,7 +4,7 @@
 
 OptionMenu::OptionMenu(sf::RenderWindow* gameContainer) :
 	GameState(gameContainer),
-	m_controllerSelector(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, "Select a controlller")
+	m_controllerSelector(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, "Select a controlller", -1)
 {
 }
 
@@ -21,14 +21,22 @@ void OptionMenu::init()
 	m_buttonList.push_back(ButtonInput("left", m_gameContainer->getSize().x / 2 - 150, 150, 300, 50, m_inputConfig, m_font));
 	m_buttonList.push_back(ButtonInput("right", m_gameContainer->getSize().x / 2 - 150, 200, 300, 50, m_inputConfig, m_font));
 	
-	m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, "Select a controlller");
+	int currentController = m_inputConfig.getCurrentController();
+	if (currentController == -1 || !sf::Joystick::isConnected(currentController))
+	{
+		m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, "Select a controlller", -1);
+	}
+	else
+	{
+		m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, sf::Joystick::getIdentification(currentController).name, currentController);
+	}
+	
 	for (int i = 0; i < 8; i++)
 	{
 		if (sf::Joystick::isConnected(i))
 		{
 			m_controllerSelector.addValue(sf::Joystick::getIdentification(i).name, i);
 		}
-		
 	}
 	
 }

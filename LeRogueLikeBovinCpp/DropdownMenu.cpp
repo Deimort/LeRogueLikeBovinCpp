@@ -2,7 +2,7 @@
 
 
 
-DropdownMenu::DropdownMenu(float x, float y, float w, float h, sf::Font& font, std::string placeholder) :
+DropdownMenu::DropdownMenu(float x, float y, float w, float h, sf::Font& font, std::string placeholder, int defaultValue) :
 	m_font(font),
 	m_base(sf::Vector2f(w,h)),
 	m_currentText(placeholder, font, 16U),
@@ -12,7 +12,7 @@ DropdownMenu::DropdownMenu(float x, float y, float w, float h, sf::Font& font, s
 	m_currentText.setOrigin(m_currentText.getLocalBounds().width / 2, m_currentText.getLocalBounds().height / 2);
 	m_currentText.setPosition(x + w / 2, y + h / 2);
 	m_currentText.setFillColor(sf::Color(0, 0, 0));
-	int m_currentValue = -1;
+	m_currentValue = defaultValue;
 }
 
 

@@ -16,7 +16,7 @@ typedef struct DropdownItem
 class DropdownMenu : public sf::Drawable
 {
 public:
-	DropdownMenu(float x, float y, float w, float h, sf::Font& font, std::string placeholder);
+	DropdownMenu(float x, float y, float w, float h, sf::Font& font, std::string placeholder, int defaultValue);
 	~DropdownMenu();
 
 	void addValue(std::string label, int value);

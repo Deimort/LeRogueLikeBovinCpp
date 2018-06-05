@@ -32,7 +32,6 @@ void Player::update()
 	{
 		applyGravity();
 	}
-	std::cout << m_isOnGround << std::endl;
 
 	/// Resetting onTheGround ///
 	m_wasOnGround = m_isOnGround;
