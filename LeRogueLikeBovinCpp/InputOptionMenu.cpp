@@ -1,20 +1,21 @@
-#include "OptionMenu.h"
+#include "InputOptionMenu.h"
 
 
 
-OptionMenu::OptionMenu(sf::RenderWindow* gameContainer) :
+InputOptionMenu::InputOptionMenu(sf::RenderWindow* gameContainer) :
 	GameState(gameContainer),
 	m_controllerSelector(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, "Select a controlller", -1)
 {
 }
 
 
-OptionMenu::~OptionMenu()
+InputOptionMenu::~InputOptionMenu()
 {
 }
 
-void OptionMenu::init()
+void InputOptionMenu::init()
 {
+	m_buttonList.clear();
 	m_buttonList.push_back(ButtonInput("jump", m_gameContainer->getSize().x/2 -150, 0, 300, 50, m_inputConfig, m_font));
 	m_buttonList.push_back(ButtonInput("up", m_gameContainer->getSize().x/2 -150, 50, 300, 50, m_inputConfig, m_font));
 	m_buttonList.push_back(ButtonInput("down", m_gameContainer->getSize().x/2 -150, 100, 300, 50, m_inputConfig, m_font));
@@ -24,13 +25,14 @@ void OptionMenu::init()
 	int currentController = m_inputConfig.getCurrentController();
 	if (currentController == -1 || !sf::Joystick::isConnected(currentController))
 	{
-		m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, "Select a controlller", -1);
+		m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, "Keyboard", -1);
 	}
 	else
 	{
 		m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_font, sf::Joystick::getIdentification(currentController).name, currentController);
 	}
 	
+	m_controllerSelector.addValue("Keyboard", -1);
 	for (int i = 0; i < 8; i++)
 	{
 		if (sf::Joystick::isConnected(i))
@@ -41,7 +43,7 @@ void OptionMenu::init()
 	
 }
 
-void OptionMenu::update()
+void InputOptionMenu::update()
 {
 	sf::Event e;
 	while (m_gameContainer->pollEvent(e))
@@ -84,7 +86,7 @@ void OptionMenu::update()
 	}
 }
 
-void OptionMenu::render()
+void InputOptionMenu::render()
 {
 	m_gameContainer->clear();
 	for (int i(0); i < m_buttonList.size(); i++)
@@ -95,7 +97,7 @@ void OptionMenu::render()
 	m_gameContainer->display();
 }
 
-void OptionMenu::selectButtonInput(float x, float y)
+void InputOptionMenu::selectButtonInput(float x, float y)
 {
 	for (int i(0); i < m_buttonList.size(); i++)
 	{

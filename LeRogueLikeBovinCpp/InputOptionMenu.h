@@ -6,11 +6,11 @@
 #include "ButtonInput.h"
 #include "DropdownMenu.h"
 
-class OptionMenu : public GameState
+class InputOptionMenu : public GameState
 {
 public:
-	OptionMenu(sf::RenderWindow* gameContainer);
-	~OptionMenu();
+	InputOptionMenu(sf::RenderWindow* gameContainer);
+	~InputOptionMenu();
 
 protected:
 

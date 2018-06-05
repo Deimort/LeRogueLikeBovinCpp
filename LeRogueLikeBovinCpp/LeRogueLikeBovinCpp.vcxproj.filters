@@ -144,9 +144,6 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>Src\roguelike\states\menu</Filter>
     </ClCompile>
-    <ClCompile Include="OptionMenu.cpp">
-      <Filter>Src\roguelike\states\menu</Filter>
-    </ClCompile>
     <ClCompile Include="InputHandler.cpp">
       <Filter>Src\roguelike\inputs</Filter>
     </ClCompile>
@@ -161,6 +158,9 @@
     </ClCompile>
     <ClCompile Include="WidgetButton.cpp">
       <Filter>Src\roguelike\states\menu\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="InputOptionMenu.cpp">
+      <Filter>Src\roguelike\states\menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,9 +218,6 @@
     <ClInclude Include="MainMenu.h">
       <Filter>Fichiers d%27en-tête\roguelike\states\menu</Filter>
     </ClInclude>
-    <ClInclude Include="OptionMenu.h">
-      <Filter>Fichiers d%27en-tête\roguelike\states\menu</Filter>
-    </ClInclude>
     <ClInclude Include="DynamicSolidHandled.h">
       <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
     </ClInclude>
@@ -238,6 +235,9 @@
     </ClInclude>
     <ClInclude Include="WidgetButton.h">
       <Filter>Fichiers d%27en-tête\roguelike\states\menu\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="InputOptionMenu.h">
+      <Filter>Fichiers d%27en-tête\roguelike\states\menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,10 +1,5 @@
 #include "Player.h"
 
-
-
-
-
-
 Player::Player(float x, float y, DrawableHandler & drawableHandler, UpdatableHandler & updatableHandler, SolidHandler & solidHandler, InputHandler &inputHandler):
 	Entity(x, y, 64, 64, drawableHandler, updatableHandler, solidHandler),
 	m_inputHandler(inputHandler),

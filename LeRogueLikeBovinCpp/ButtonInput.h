@@ -19,7 +19,6 @@ public:
 private:
 	std::string m_inputName;
 	sf::FloatRect m_bounds;
-	sf::Font m_font;
 
 	sf::RectangleShape m_nameCell;
 	sf::RectangleShape m_keyCell;
