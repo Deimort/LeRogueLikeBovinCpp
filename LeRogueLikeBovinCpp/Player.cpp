@@ -2,14 +2,16 @@
 
 
 
-Player::Player(float x, float y, DrawableHandler &drawableHandler, UpdatableHandler &updatableHandler, SolidHandler &solidHandler, InputConfig &config) :
+
+
+
+Player::Player(float x, float y, DrawableHandler & drawableHandler, UpdatableHandler & updatableHandler, SolidHandler & solidHandler, InputHandler &inputHandler):
 	Entity(x, y, 64, 64, drawableHandler, updatableHandler, solidHandler),
-	m_inputHandler(config),
-	player(sf::Vector2f(64,64))
+	m_inputHandler(inputHandler),
+	player(sf::Vector2f(64, 64))
 {
 	player.setPosition(x, y);
 }
-
 
 Player::~Player()
 {

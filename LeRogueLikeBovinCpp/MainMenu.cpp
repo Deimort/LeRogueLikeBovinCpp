@@ -2,11 +2,12 @@
 
 
 
-MainMenu::MainMenu(sf::RenderWindow* gameContainer) : GameState(gameContainer)
+MainMenu::MainMenu(sf::RenderWindow* gameContainer) :
+	GameState(gameContainer)
 {
-	m_homeMessage = sf::Text("<Press -space- to launch>\n-o- for options", m_font);
-	m_homeMessage.setOrigin(sf::Vector2f(m_homeMessage.getLocalBounds().width / 2, m_homeMessage.getLocalBounds().height / 2));
-	m_homeMessage.setPosition(m_gameContainer->getSize().x / 2, m_gameContainer->getSize().y / 2);
+	m_buttonsList.push_back(WidgetButton(100, 100, 200, 60, "Start Game", m_font, 1));
+	m_buttonsList.push_back(WidgetButton(100, 170, 200, 60, "Options", m_font, 2));
+	m_buttonsList.push_back(WidgetButton(100, 240, 200, 60, "Quitter", m_font, -1));
 }
 
 
@@ -17,6 +18,9 @@ MainMenu::~MainMenu()
 void MainMenu::init()
 {
 	InputConfig testConfig;
+	m_currentButton = 0;
+	m_buttonsList[0].setSelected(true);
+
 	testConfig.loadInputConfig("config/input.cfg");
 	testConfig.saveInputConfig("config/input.cfg");
 }
@@ -26,25 +30,54 @@ void MainMenu::update()
 	sf::Event e;
 	while (m_gameContainer->pollEvent(e))
 	{
-		if (e.type == sf::Event::EventType::KeyPressed)
+		
+	}
+	if (m_buttonCooldown.getElapsedTime().asMilliseconds() > 100) {
+		m_buttonCooldown.restart();
+		if (m_inputHandler.getYAxisValue() > 0 || m_inputHandler.getXAxisValue() > 0 || sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ||
+			sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
-			if (e.key.code == sf::Keyboard::Space)
+			m_buttonsList[m_currentButton].setSelected(false);
+
+			m_currentButton++;
+			if (m_currentButton >= m_buttonsList.size())
 			{
-				m_nextState = 1; // InGame
-				m_continue = false;
+				m_currentButton = 0;
+
 			}
-			else if (e.key.code == sf::Keyboard::O)
+			m_buttonsList[m_currentButton].setSelected(true);
+		}
+
+		if (m_inputHandler.getYAxisValue() < 0 || m_inputHandler.getXAxisValue() < 0 || sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ||
+			sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		{
+			m_buttonsList[m_currentButton].setSelected(false);
+
+			m_currentButton--;
+			if (m_currentButton < 0)
 			{
-				m_nextState = 2;
-				m_continue = false;
+				m_currentButton = m_buttonsList.size() - 1;
+
 			}
+			m_buttonsList[m_currentButton].setSelected(true);
 		}
 	}
+
+	if (m_inputHandler.isJumping() || sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+	{
+		m_nextState = m_buttonsList[m_currentButton].getValue();
+		m_continue = false;
+	}
+
+
 }
 
 void MainMenu::render()
 {
 	m_gameContainer->clear();
-	m_gameContainer->draw(m_homeMessage);
+	for (int i(0); i < m_buttonsList.size(); i++)
+	{
+		m_gameContainer->draw(m_buttonsList[i]);
+	}
 	m_gameContainer->display();
 }

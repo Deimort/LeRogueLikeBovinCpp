@@ -1,6 +1,7 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 #include "InputConfig.h"
+#include "InputHandler.h"
 
 class GameState
 {
@@ -16,6 +17,7 @@ protected:
 	int m_nextState = -1;
 
 	InputConfig m_inputConfig;
+	InputHandler m_inputHandler;
 
 	sf::Font m_font;
 
@@ -27,6 +29,6 @@ private:
 	sf::Clock m_clock;
 	int m_timeBuffer = 0;
 
-	const int FRAME_LENGTH = 16000; // 16000µs == 16ms == 60FPS
+	const int FRAME_LENGTH = 10000; // 16000µs == 16ms == 60FPS
 };
 

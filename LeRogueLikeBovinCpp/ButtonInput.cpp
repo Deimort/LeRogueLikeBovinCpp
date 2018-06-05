@@ -19,6 +19,7 @@ ButtonInput::ButtonInput(std::string inputName, float x, float y, float w, float
 	m_buttonCell.setPosition(x + 2*(w / 3), y);
 
 	m_nameCell.setFillColor(sf::Color(150, 50, 250));
+	m_nameCell.setOutlineColor(sf::Color(0, 0, 250));
 	m_keyCell.setFillColor(sf::Color(150, 50, 250));
 	m_buttonCell.setFillColor(sf::Color(150, 50, 250));
 	
@@ -37,7 +38,6 @@ ButtonInput::~ButtonInput()
 
 bool ButtonInput::isClicked(float x, float y)
 {
-	
 	return m_bounds.contains(x,y);
 }
 
