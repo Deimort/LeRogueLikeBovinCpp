@@ -11,7 +11,7 @@
 class InGame : public GameState
 {
 public:
-	InGame(sf::RenderWindow* gameContainer);
+	InGame(sf::RenderWindow* gameContainer, ResourceLoader* resourceLoader);
 	~InGame();
 
 protected:

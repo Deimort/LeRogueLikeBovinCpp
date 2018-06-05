@@ -1,6 +1,7 @@
 #include "InGame.h"
 
-InGame::InGame(sf::RenderWindow* gameContainer) : GameState(gameContainer)
+InGame::InGame(sf::RenderWindow* gameContainer, ResourceLoader* resourceLoader) :
+	GameState(gameContainer, resourceLoader)
 {
 }
 

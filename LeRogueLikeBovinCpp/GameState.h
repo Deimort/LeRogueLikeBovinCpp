@@ -2,24 +2,28 @@
 #include "SFML/Graphics.hpp"
 #include "InputConfig.h"
 #include "InputHandler.h"
+#include "ResourceLoader.h"
 
 class GameState
 {
 public:
-	GameState(sf::RenderWindow* gameContainer);
+	GameState(sf::RenderWindow* gameContainer, ResourceLoader* resourceLoader);
 	~GameState();
 
 	int start();
 
 protected:
 	sf::RenderWindow* m_gameContainer;
+	ResourceLoader* m_resourceLoader;
+
 	bool m_continue = true;
 	int m_nextState = -1;
 
 	InputConfig m_inputConfig;
 	InputHandler m_inputHandler;
 
-	sf::Font m_font;
+	
+	//sf::Font m_font;
 
 	virtual void init() = 0;
 	virtual void update() = 0;

@@ -1,10 +1,10 @@
 #include "WidgetButton.h"
-
+#include <iostream> // TODO remove
 
 WidgetButton::WidgetButton(float x, float y, float w, float h, std::string buttonName, sf::Font &font, int value) :
 	m_bounds(x, y, w, h),
 	m_cell(sf::Vector2f(w, h)),
-	m_text(buttonName, font),
+	m_text(buttonName, font, 30U),
 	m_value(value)
 {
 	m_cell.setPosition(x,y);
@@ -13,9 +13,7 @@ WidgetButton::WidgetButton(float x, float y, float w, float h, std::string butto
 	m_cell.setOutlineColor(sf::Color(255, 0, 0));
 
 	m_text.setOrigin(m_text.getLocalBounds().width / 2, m_text.getLocalBounds().height / 2);
-
 	m_text.setPosition(x + w / 2, y + h / 3);
-
 }
 
 WidgetButton::~WidgetButton()

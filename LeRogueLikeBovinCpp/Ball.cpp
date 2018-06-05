@@ -27,7 +27,6 @@ void Ball::update()
 
 void Ball::onCollide(Solid &other)
 {
-	std::cout << "Collide" << std::endl;
 }
 
 void Ball::moveBy(float x, float y)

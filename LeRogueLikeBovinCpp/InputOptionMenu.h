@@ -9,14 +9,14 @@
 class InputOptionMenu : public GameState
 {
 public:
-	InputOptionMenu(sf::RenderWindow* gameContainer);
+	InputOptionMenu(sf::RenderWindow* gameContainer, ResourceLoader* resourceLoader);
 	~InputOptionMenu();
 
 protected:
 
-	void init();
-	void update();
-	void render();
+	void init() override;
+	void update() override;
+	void render() override;
 
 private :
 	std::vector<ButtonInput> m_buttonList;

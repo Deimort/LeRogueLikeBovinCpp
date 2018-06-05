@@ -4,13 +4,15 @@
 
 RogueLikeGame::RogueLikeGame()
 {
-	initStateList();
+	m_resourceLoader->loadAll();
+	initStateList();	
 }
 
 
 RogueLikeGame::~RogueLikeGame()
 {
 	delete m_gameContainer;
+	delete m_resourceLoader;
 }
 
 
@@ -21,6 +23,7 @@ void RogueLikeGame::enterState(int id)
 	if (nextState == -1)
 	{
 		// TODO détruire le jeu proprement
+		m_gameContainer->close();
 		return;
 	}
 	else
@@ -31,7 +34,7 @@ void RogueLikeGame::enterState(int id)
 
 void RogueLikeGame::initStateList()
 {
-	m_statesList.push_back(new MainMenu(m_gameContainer));
-	m_statesList.push_back(new InGame(m_gameContainer));
-	m_statesList.push_back(new InputOptionMenu(m_gameContainer));
+	m_statesList.push_back(new MainMenu(m_gameContainer, m_resourceLoader));
+	m_statesList.push_back(new InGame(m_gameContainer, m_resourceLoader));
+	m_statesList.push_back(new InputOptionMenu(m_gameContainer, m_resourceLoader));
 }

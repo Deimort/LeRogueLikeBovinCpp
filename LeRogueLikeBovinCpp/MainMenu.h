@@ -7,7 +7,7 @@
 class MainMenu : public GameState
 {
 public:
-	MainMenu(sf::RenderWindow* gameContainer);
+	MainMenu(sf::RenderWindow* gameContainer, ResourceLoader* resourceLoader);
 	~MainMenu();
 
 protected:

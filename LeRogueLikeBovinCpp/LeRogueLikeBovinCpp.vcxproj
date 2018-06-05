@@ -140,10 +140,13 @@
     <ClCompile Include="InputOptionMenu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Quadtree.cpp" />
+    <ClCompile Include="ResourceLoader.cpp" />
     <ClCompile Include="RogueLikeGame.cpp" />
+    <ClCompile Include="Room.cpp" />
     <ClCompile Include="Solid.cpp" />
     <ClCompile Include="SolidHandled.cpp" />
     <ClCompile Include="SolidHandler.cpp" />
+    <ClCompile Include="TileSet.cpp" />
     <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="UpdatableHandler.cpp" />
     <ClCompile Include="UpdatableHandled.cpp" />
@@ -167,10 +170,13 @@
     <ClInclude Include="InputOptionMenu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Quadtree.h" />
+    <ClInclude Include="ResourceLoader.h" />
     <ClInclude Include="RogueLikeGame.h" />
+    <ClInclude Include="Room.h" />
     <ClInclude Include="Solid.h" />
     <ClInclude Include="SolidHandled.h" />
     <ClInclude Include="SolidHandler.h" />
+    <ClInclude Include="TileSet.h" />
     <ClInclude Include="Updatable.h" />
     <ClInclude Include="UpdatableHandler.h" />
     <ClInclude Include="UpdatableHandled.h" />

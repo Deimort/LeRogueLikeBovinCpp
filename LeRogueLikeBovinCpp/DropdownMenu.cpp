@@ -8,6 +8,7 @@ DropdownMenu::DropdownMenu(float x, float y, float w, float h, sf::Font& font, s
 	m_currentText(placeholder, font, 16U),
 	m_bounds(x,y,w,h)
 {
+	std::cout << m_currentText.getLocalBounds().width << std::endl;
 	m_base.setPosition(x, y);
 	m_currentText.setOrigin(m_currentText.getLocalBounds().width / 2, m_currentText.getLocalBounds().height / 2);
 	m_currentText.setPosition(x + w / 2, y + h / 2);
@@ -47,7 +48,6 @@ void DropdownMenu::onClick(float x, float y)
 {
 	if (!isOpen && m_bounds.contains(x,y))
 	{
-		std::cout << "ha" << std::endl;
 		isOpen = true;
 	}
 	else
