@@ -2,7 +2,8 @@
 
 
 
-GameState::GameState(sf::RenderWindow* gameContainer)
+GameState::GameState(sf::RenderWindow* gameContainer):
+	m_inputHandler(m_inputConfig)
 {
 	m_gameContainer = gameContainer;
 	m_font.loadFromFile("assets/fonts/dpcomic.ttf");

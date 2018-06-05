@@ -148,6 +148,7 @@
     <ClCompile Include="UpdatableHandler.cpp" />
     <ClCompile Include="UpdatableHandled.cpp" />
     <ClCompile Include="Wall.cpp" />
+    <ClCompile Include="WidgetButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="UpdatableHandler.h" />
     <ClInclude Include="UpdatableHandled.h" />
     <ClInclude Include="Wall.h" />
+    <ClInclude Include="WidgetButton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

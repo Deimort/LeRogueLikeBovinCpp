@@ -7,7 +7,7 @@
 class Player : public Entity
 {
 public:
-	Player(float x, float y, DrawableHandler &drawableHandler, UpdatableHandler &updatableHandler, SolidHandler &solidHandler, InputConfig &config);
+	Player(float x, float y, DrawableHandler &drawableHandler, UpdatableHandler &updatableHandler, SolidHandler &solidHandler, InputHandler &inputHandler);
 	~Player();
 
 	void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
