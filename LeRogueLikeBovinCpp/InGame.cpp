@@ -15,10 +15,6 @@ InGame::~InGame()
 
 void InGame::init()
 {
-	for (int i(0); i < 8; i++) {
-		std::cout << i << " : " << sf::Joystick::isConnected(i) << std::endl;
-	}
-
 	Wall* wall = new Wall(0, 480, 640, 48, m_drawableHandler, m_solidHandler);
 	m_createdInstance.push_back(wall);
 	Wall* wall2 = new Wall(0, 320, 300, 48, m_drawableHandler, m_solidHandler);
@@ -35,6 +31,19 @@ void InGame::init()
 	m_minimap.setViewport(sf::FloatRect(sf::Vector2f(0.85, 0), sf::Vector2f(0.10, 0.10)));
 
 	m_inputConfig.loadInputConfig("config/input.cfg");
+
+	//TEST
+	int** backgroundLayer = new int*[1];
+	for (int i = 0; i < 2; ++i)
+		backgroundLayer[i] = new int[2];
+
+	backgroundLayer[0][0] = 1;
+	backgroundLayer[0][1] = 2;
+	/*backgroundLayer[1][0] = 2;
+	backgroundLayer[1][1] = 3;*/
+	m_room = Room(2, 1, backgroundLayer, backgroundLayer, backgroundLayer, *m_resourceLoader->getImage("lv1_tileset"));
+	//END
+
 }
 
 void InGame::update()
@@ -69,10 +78,16 @@ void InGame::update()
 void InGame::render()
 {
 	m_gameContainer->clear();
+
 	m_gameContainer->setView(m_gameView); // Affichage du jeu
 	m_drawableHandler.drawAll(m_gameContainer);
+	//TEST
+	m_gameContainer->draw(m_room);
+	//END
+
 	m_gameContainer->setView(m_minimap); // Affichage de la carte
 	m_drawableHandler.drawAll(m_gameContainer);
+
 	m_gameContainer->display();
 
 	m_gameContainer->setView(m_gameContainer->getDefaultView());

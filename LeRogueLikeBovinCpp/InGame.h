@@ -5,6 +5,7 @@
 #include "SolidHandler.h"
 #include "Ball.h"
 #include "Wall.h"
+#include "Room.h"
 #include "Player.h"
 #include <iostream>
 
@@ -27,6 +28,9 @@ private:
 	Player* m_player;
 	sf::View m_gameView;
 	sf::View m_minimap;
+
+
+	Room m_room; //TODO remove
 
 	void deleteAll();
 };

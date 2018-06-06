@@ -18,11 +18,14 @@ public:
 	// TODO make private
 	
 	sf::Font* getFont(std::string fontName);
+	sf::Image* getImage(std::string imageName);
 
 	//NB: desactivate AA
 private:
 	std::map<std::string, sf::Font> m_fontMap;
+	std::map<std::string, sf::Image> m_imageMap;
 	
 	void loadFont(std::string fontName, std::string path);
+	void loadImage(std::string imageName, std::string path);
 };
 
