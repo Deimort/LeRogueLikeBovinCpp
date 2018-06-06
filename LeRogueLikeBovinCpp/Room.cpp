@@ -1,40 +1,21 @@
 #include "Room.h"
-#include <iostream> //TODO remove
 
 Room::Room()
 {
-
+	// Construct an empty room
 }
 
 Room::Room(unsigned int columns, unsigned int rows, int** backgroundLayer, int** miscLayer, int** platformsLayer, sf::Image& textureImage) :
 	m_vArray(sf::Quads, rows*columns*4U)
 {
-	m_tileSet.loadFromFile("assets/tilesets/lv1_tileset.png");
-	for (int i = 0; i < rows; i++)
-	{
-		for (int j = 0; j < columns; j++)
-		{
-			int a = 4 * (j + i * columns);
-			std::cout << "a: " <<  a << std::endl;
-			sf::Vertex* quad = &m_vArray[a];
+	m_tileSet.loadFromImage(textureImage);
 
-			quad[0].position = sf::Vector2f(j*64, i*64);
-			//m_vArray[a].color = sf::Color(255,255,255);
-			quad[0].texCoords = makeTextureCoordsFromId(backgroundLayer[i][j], 0);
+	m_arrayMap["background"] = sf::VertexArray(sf::Quads, rows*columns * 4U);
+	m_arrayMap["misc"] = sf::VertexArray(sf::Quads, rows*columns * 4U);
+	m_arrayMap["platform"] = sf::VertexArray(sf::Quads, rows*columns * 4U);
 
-			quad[1].position = sf::Vector2f(j * 64 + 64, i * 64);
-			//m_vArray[a+1].color = sf::Color(255, 255, 255);
-			quad[1].texCoords = makeTextureCoordsFromId(backgroundLayer[i][j], 1);
-
-			quad[2].position = sf::Vector2f(j * 64 + 64, i * 64 + 64);
-			//m_vArray[a+2].color = sf::Color(255, 255, 255);
-			quad[2].texCoords = makeTextureCoordsFromId(backgroundLayer[i][j], 2);
-
-			quad[3].position = sf::Vector2f(j * 64, i * 64 + 64);
-			//m_vArray[a+3].color = sf::Color(255, 255, 255);
-			quad[3].texCoords = makeTextureCoordsFromId(backgroundLayer[i][j], 3);
-		}
-	}
+	buildLayer("background", rows, columns, backgroundLayer);
+	// TODO add 2 for loops to handle misc and platforms layers
 }
 
 
@@ -44,10 +25,45 @@ Room::~Room()
 
 void Room::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
+	drawLayer("background", target, states);
+}
+
+void Room::drawLayer(std::string layerName, sf::RenderTarget & target, sf::RenderStates states) const
+{
 	states.transform *= getTransform();
 	states.texture = &m_tileSet;
-	target.draw(m_vArray, states);
-	//target.draw(spr, states);
+	target.draw(m_arrayMap.at(layerName), states);
+}
+
+void Room::buildAllLayers(int rows, int columns, int** backgroundLayer, int** miscLayer, int** platformsLayer)
+{
+	buildLayer("background", rows, columns, backgroundLayer);
+	buildLayer("misc", rows, columns, miscLayer);
+	buildLayer("platforms", rows, columns, platformsLayer);
+}
+
+void Room::buildLayer(std::string layerName, int rows, int columns, int ** layerMap)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < columns; j++)
+		{
+			int a = 4 * (j + i * columns);
+			sf::Vertex* quad = &m_arrayMap[layerName][a];
+
+			quad[0].position = sf::Vector2f(j * 64, i * 64);
+			quad[0].texCoords = makeTextureCoordsFromId(layerMap[i][j], 0);
+
+			quad[1].position = sf::Vector2f(j * 64 + 64, i * 64);
+			quad[1].texCoords = makeTextureCoordsFromId(layerMap[i][j], 1);
+
+			quad[2].position = sf::Vector2f(j * 64 + 64, i * 64 + 64);
+			quad[2].texCoords = makeTextureCoordsFromId(layerMap[i][j], 2);
+
+			quad[3].position = sf::Vector2f(j * 64, i * 64 + 64);
+			quad[3].texCoords = makeTextureCoordsFromId(layerMap[i][j], 3);
+		}
+	}
 }
 
 sf::Vector2f Room::makeTextureCoordsFromId(int id, int cornerId) //CornerId is numeroted from 0 to 3 clockwise
@@ -63,8 +79,5 @@ sf::Vector2f Room::makeTextureCoordsFromId(int id, int cornerId) //CornerId is n
 	{
 		tv += 64;
 	}
-	
-	std::cout << id << "(" << cornerId << ")" << "-> " << tu << " / " << tv << std::endl;
-
 	return sf::Vector2f(tu, tv);
 }

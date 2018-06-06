@@ -13,10 +13,7 @@ public:
 	// Load+Get Animation
 	// Load+Get Room
 
-	void loadAll();
-
-	// TODO make private
-	
+	void loadAll();	
 	sf::Font* getFont(std::string fontName);
 	sf::Image* getImage(std::string imageName);
 
