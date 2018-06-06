@@ -5,17 +5,17 @@ Room::Room()
 	// Construct an empty room
 }
 
-Room::Room(unsigned int columns, unsigned int rows, int** backgroundLayer, int** miscLayer, int** platformsLayer, sf::Image& textureImage) :
-	m_vArray(sf::Quads, rows*columns*4U)
+Room::Room(unsigned int columns, unsigned int rows, std::vector<std::vector<int>> backgroundLayer, std::vector<std::vector<int>> miscLayer, std::vector<std::vector<int>> platformsLayer, sf::Image& textureImage) :
+	m_width(columns),
+	m_height(rows)
 {
 	m_tileSet.loadFromImage(textureImage);
 
 	m_arrayMap["background"] = sf::VertexArray(sf::Quads, rows*columns * 4U);
 	m_arrayMap["misc"] = sf::VertexArray(sf::Quads, rows*columns * 4U);
-	m_arrayMap["platform"] = sf::VertexArray(sf::Quads, rows*columns * 4U);
+	m_arrayMap["platforms"] = sf::VertexArray(sf::Quads, rows*columns * 4U);
 
 	buildLayer("background", rows, columns, backgroundLayer);
-	// TODO add 2 for loops to handle misc and platforms layers
 }
 
 
@@ -23,26 +23,21 @@ Room::~Room()
 {
 }
 
-void Room::draw(sf::RenderTarget & target, sf::RenderStates states) const
+void Room::drawLayerAt(float x, float y, std::string layerName, sf::RenderTarget & target, sf::RenderStates states) const
 {
-	drawLayer("background", target, states);
-}
-
-void Room::drawLayer(std::string layerName, sf::RenderTarget & target, sf::RenderStates states) const
-{
-	states.transform *= getTransform();
+	states.transform.translate(x, y);
 	states.texture = &m_tileSet;
 	target.draw(m_arrayMap.at(layerName), states);
 }
 
-void Room::buildAllLayers(int rows, int columns, int** backgroundLayer, int** miscLayer, int** platformsLayer)
+void Room::buildAllLayers(int rows, int columns, std::vector<std::vector<int>> backgroundLayer, std::vector<std::vector<int>> miscLayer, std::vector<std::vector<int>> platformsLayer)
 {
 	buildLayer("background", rows, columns, backgroundLayer);
 	buildLayer("misc", rows, columns, miscLayer);
 	buildLayer("platforms", rows, columns, platformsLayer);
 }
 
-void Room::buildLayer(std::string layerName, int rows, int columns, int ** layerMap)
+void Room::buildLayer(std::string layerName, int rows, int columns, std::vector<std::vector<int>> layerMap)
 {
 	for (int i = 0; i < rows; i++)
 	{
@@ -80,4 +75,14 @@ sf::Vector2f Room::makeTextureCoordsFromId(int id, int cornerId) //CornerId is n
 		tv += 64;
 	}
 	return sf::Vector2f(tu, tv);
+}
+
+int Room::getWidth()
+{
+	return m_width;
+}
+
+int Room::getHeight()
+{
+	return m_height;
 }

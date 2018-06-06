@@ -8,7 +8,6 @@ DropdownMenu::DropdownMenu(float x, float y, float w, float h, sf::Font& font, s
 	m_currentText(placeholder, font, 16U),
 	m_bounds(x,y,w,h)
 {
-	std::cout << m_currentText.getLocalBounds().width << std::endl;
 	m_base.setPosition(x, y);
 	m_currentText.setOrigin(m_currentText.getLocalBounds().width / 2, m_currentText.getLocalBounds().height / 2);
 	m_currentText.setPosition(x + w / 2, y + h / 2);
@@ -52,7 +51,7 @@ void DropdownMenu::onClick(float x, float y)
 	}
 	else
 	{
-		for (int i = 0; i < m_items.size(); i++)
+		for (unsigned int i = 0; i < m_items.size(); i++)
 		{
 			if (m_items[i].bounds.contains(x, y))
 			{
@@ -76,7 +75,7 @@ void DropdownMenu::draw(sf::RenderTarget & target, sf::RenderStates states) cons
 	}
 	else
 	{
-		for (int i = 0; i < m_items.size(); i++)
+		for (unsigned int i = 0; i < m_items.size(); i++)
 		{
 			target.draw(m_items[i].graphicRect, states);
 			target.draw(m_items[i].text, states);

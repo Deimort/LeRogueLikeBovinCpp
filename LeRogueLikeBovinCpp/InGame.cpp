@@ -7,7 +7,7 @@ InGame::InGame(sf::RenderWindow* gameContainer, ResourceLoader* resourceLoader) 
 
 InGame::~InGame()
 {
-	for (int i(0); i < m_createdInstance.size(); i++)
+	for (unsigned int i(0); i < m_createdInstance.size(); i++)
 	{
 		delete m_createdInstance.at(i);
 	}
@@ -28,20 +28,37 @@ void InGame::init()
 
 	m_gameView = sf::View(sf::Vector2f(m_player->getCenterX(), m_player->getCenterY()), sf::Vector2f(1280, 720));
 	m_minimap = sf::View(sf::Vector2f(m_player->getCenterX(), m_player->getCenterY()), sf::Vector2f(2560, 1440));
-	m_minimap.setViewport(sf::FloatRect(sf::Vector2f(0.85, 0), sf::Vector2f(0.10, 0.10)));
+	m_minimap.setViewport(sf::FloatRect(sf::Vector2f(0.85f, 0), sf::Vector2f(0.10f, 0.10f)));
 
 	m_inputConfig.loadInputConfig("config/input.cfg");
 
 	//TEST
-	int** backgroundLayer = new int*[1];
-	for (int i = 0; i < 2; ++i)
-		backgroundLayer[i] = new int[2];
+	std::vector<std::vector<int>> backgroundLayer;
+	for (int i = 0; i < 1; ++i)
+	{
+		std::vector<int> line;
+		line.push_back(12);
+		line.push_back(24);
+		backgroundLayer.push_back(line);
+	}
+	std::vector<std::vector<int>> miscLayer;
+	for (int i = 0; i < 1; ++i)
+	{
+		std::vector<int> line;
+		line.push_back(12);
+		line.push_back(24);
+		miscLayer.push_back(line);
+	}
+	std::vector<std::vector<int>> platformsLayer;
+	for (int i = 0; i < 1; ++i)
+	{
+		std::vector<int> line;
+		line.push_back(12);
+		line.push_back(24);
+		platformsLayer.push_back(line);
+	}
 
-	backgroundLayer[0][0] = 1;
-	backgroundLayer[0][1] = 2;
-	/*backgroundLayer[1][0] = 2;
-	backgroundLayer[1][1] = 3;*/
-	m_room = Room(2, 1, backgroundLayer, backgroundLayer, backgroundLayer, *m_resourceLoader->getImage("lv1_tileset"));
+	m_room = Room(2, 1, backgroundLayer, miscLayer, platformsLayer, *m_resourceLoader->getImage("lv1_tileset"));
 	//END
 
 }
@@ -82,7 +99,7 @@ void InGame::render()
 	m_gameContainer->setView(m_gameView); // Affichage du jeu
 	m_drawableHandler.drawAll(m_gameContainer);
 	//TEST
-	m_gameContainer->draw(m_room);
+	m_room.drawLayerAt(0, 0, "background", *m_gameContainer);
 	//END
 
 	m_gameContainer->setView(m_minimap); // Affichage de la carte
