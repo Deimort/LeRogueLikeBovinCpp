@@ -12,14 +12,37 @@ Player::~Player()
 {
 }
 
+void Player::setAnimation(Animation a)
+{
+	m_animation = a;
+}
+
 void Player::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
-	target.draw(player, states);
+	sf::Sprite sprite = m_animation.getCurrentFrame();
+	states.transform.translate(getX(), getY());
+	if (m_flip)
+	{
+		states.transform.scale(-1, 1);
+		states.transform.translate(-64, 0); // Correction du décalage produit par le scale
+	}
+	
+	target.draw(player);
+	target.draw(sprite, states);
+	
 }
 
 void Player::update()
 {
 	Entity::update();
+
+	/// Updating animation ///
+	m_animation.update();
+	if (m_xVel > 0)
+		m_flip = false;
+	if (m_xVel < 0)
+		m_flip = true;
+
 	m_xVel = m_inputHandler.getXAxisValue() * 5;
 	if (m_inputHandler.isJumping() && m_isOnGround) 
 	{
@@ -29,7 +52,6 @@ void Player::update()
 	{
 		applyGravity();
 	}
-
 	/// Resetting onTheGround ///
 	m_wasOnGround = m_isOnGround;
 	m_isOnGround = false;

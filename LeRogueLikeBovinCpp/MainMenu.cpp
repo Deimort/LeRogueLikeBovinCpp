@@ -6,9 +6,9 @@ MainMenu::MainMenu(sf::RenderWindow* gameContainer, ResourceLoader* resourceLoad
 	GameState(gameContainer, resourceLoader)
 {
 	sf::Font* font = m_resourceLoader->getFont("MainFont");
-	m_buttonsList.push_back(WidgetButton(100 , gameContainer->getSize().y / 3, 200, 60, "Start Game", *font, 1));
-	m_buttonsList.push_back(WidgetButton(100, gameContainer->getSize().y / 3 + 60 + 10, 200, 60, "Options", *font, 2));
-	m_buttonsList.push_back(WidgetButton(100, gameContainer->getSize().y / 3 + 60 + 10 + 60 + 10, 200, 60, "Quitter", *font, -1));
+	m_buttonsList.push_back(WidgetButton(100 , (float)gameContainer->getSize().y / 3, 200, 60, "Start Game", *font, 1));
+	m_buttonsList.push_back(WidgetButton(100, (float)gameContainer->getSize().y / 3 + 60 + 10, 200, 60, "Options", *font, 2));
+	m_buttonsList.push_back(WidgetButton(100, (float)gameContainer->getSize().y / 3 + 60 + 10 + 60 + 10, 200, 60, "Quitter", *font, -1));
 }
 
 MainMenu::~MainMenu()
@@ -73,7 +73,7 @@ void MainMenu::update()
 void MainMenu::render()
 {
 	m_gameContainer->clear();
-	for (int i(0); i < m_buttonsList.size(); i++)
+	for (unsigned int i(0); i < m_buttonsList.size(); i++)
 	{
 		m_gameContainer->draw(m_buttonsList[i]);
 	}

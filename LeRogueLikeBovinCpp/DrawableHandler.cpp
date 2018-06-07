@@ -18,7 +18,7 @@ void DrawableHandler::addDrawable(sf::Drawable* drawable)
 
 void DrawableHandler::drawAll(sf::RenderWindow* gameContainer)
 {
-	for (int i(0); i < m_drawableList.size(); i++)
+	for (unsigned int i(0); i < m_drawableList.size(); i++)
 	{
 		gameContainer->draw(*(m_drawableList.at(i)));
 	}

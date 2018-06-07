@@ -35,16 +35,3 @@ int GameState::start()
 	}
 	return m_nextState; // return -1 to Exit
 }
-
-
-
-/*
-void GameState::update()
-{
-
-}
-
-void GameState::render()
-{
-
-}*/

@@ -31,8 +31,8 @@ protected:
 
 private:
 	sf::Clock m_clock;
-	int m_timeBuffer = 0;
+	sf::Int64 m_timeBuffer = 0;
 
-	const int FRAME_LENGTH = 10000; // 16000µs == 16ms == 60FPS
+	const int FRAME_LENGTH = 16000; // 16000µs == 16ms == 60FPS
 };
 
