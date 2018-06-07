@@ -29,9 +29,6 @@ private:
 	sf::View m_gameView;
 	sf::View m_minimap;
 
-
-	Room m_room; //TODO remove
-
 	void deleteAll();
 };
 

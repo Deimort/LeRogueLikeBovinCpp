@@ -31,36 +31,6 @@ void InGame::init()
 	m_minimap.setViewport(sf::FloatRect(sf::Vector2f(0.85f, 0), sf::Vector2f(0.10f, 0.10f)));
 
 	m_inputConfig.loadInputConfig("config/input.cfg");
-
-	//TEST
-	std::vector<std::vector<int>> backgroundLayer;
-	for (int i = 0; i < 1; ++i)
-	{
-		std::vector<int> line;
-		line.push_back(12);
-		line.push_back(24);
-		backgroundLayer.push_back(line);
-	}
-	std::vector<std::vector<int>> miscLayer;
-	for (int i = 0; i < 1; ++i)
-	{
-		std::vector<int> line;
-		line.push_back(12);
-		line.push_back(24);
-		miscLayer.push_back(line);
-	}
-	std::vector<std::vector<int>> platformsLayer;
-	for (int i = 0; i < 1; ++i)
-	{
-		std::vector<int> line;
-		line.push_back(12);
-		line.push_back(24);
-		platformsLayer.push_back(line);
-	}
-
-	m_room = Room(2, 1, backgroundLayer, miscLayer, platformsLayer, *m_resourceLoader->getImage("lv1_tileset"));
-	//END
-
 }
 
 void InGame::update()
@@ -97,14 +67,19 @@ void InGame::render()
 	m_gameContainer->clear();
 
 	m_gameContainer->setView(m_gameView); // Affichage du jeu
+	m_resourceLoader->getRoom("room0001")->drawLayerAt(0, 0, "background", *m_gameContainer); // Background drawing
 	m_drawableHandler.drawAll(m_gameContainer);
-	//TEST
-	m_room.drawLayerAt(0, 0, "background", *m_gameContainer);
+	m_resourceLoader->getRoom("room0001")->drawLayerAt(0, 0, "misc", *m_gameContainer); // Misc. drawing
+	m_resourceLoader->getRoom("room0001")->drawLayerAt(0, 0, "platforms", *m_gameContainer); // Platforms and walls drawing;
+
+	
 	//END
 
 	m_gameContainer->setView(m_minimap); // Affichage de la carte
+	m_resourceLoader->getRoom("room0001")->drawLayerAt(0, 0, "background", *m_gameContainer); // Background drawing
 	m_drawableHandler.drawAll(m_gameContainer);
-
+	m_resourceLoader->getRoom("room0001")->drawLayerAt(0, 0, "misc", *m_gameContainer); // Misc. drawing
+	m_resourceLoader->getRoom("room0001")->drawLayerAt(0, 0, "platforms", *m_gameContainer); // Platforms and walls drawing;
 	m_gameContainer->display();
 
 	m_gameContainer->setView(m_gameContainer->getDefaultView());

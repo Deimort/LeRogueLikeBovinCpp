@@ -7,7 +7,7 @@ class Room : sf::Transformable
 {
 public:
 	Room();
-	Room(unsigned int columns, unsigned int rows, std::vector<std::vector<int>> backgroundLayer, std::vector<std::vector<int>> miscLayer, std::vector<std::vector<int>> platformsLayer, sf::Image &textureImage);
+	Room(unsigned int columns, unsigned int rows, std::vector<std::vector<int>> backgroundLayer, std::vector<std::vector<int>> miscLayer, std::vector<std::vector<int>> platformsLayer, sf::Image *textureImage);
 	~Room();
 
 	void drawLayerAt(float x, float y, std::string layerName, sf::RenderTarget& target, sf::RenderStates states = sf::RenderStates::Default) const;

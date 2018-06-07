@@ -47,7 +47,7 @@ void ResourceLoader::loadRoom(std::string roomName, std::string path)
 		while (std::getline(file, line))
 		{
 			// Line parsing
-			while (line.find_last_of(";") == -1)
+			while (line.find(";") == std::string::npos)
 			{
 				std::string nextLine; 
 				std::getline(file, nextLine);
@@ -62,8 +62,9 @@ void ResourceLoader::loadRoom(std::string roomName, std::string path)
 			// Line handling
 			if (lineHead == "dim")
 			{
-				rows = std::stoi(line.substr(0, line.find_first_of(" ")));
-				columns = std::stoi(line.substr(line.find_first_of(" ") + 1));
+				columns = std::stoi(line.substr(0, line.find_first_of(" ")));
+				rows = std::stoi(line.substr(line.find_first_of(" ") + 1));
+				std::cout << rows << " - " << columns << std::endl;
 			}
 			
 			if (lineHead == "background")
@@ -75,11 +76,10 @@ void ResourceLoader::loadRoom(std::string roomName, std::string path)
 					{
 						vecLine.push_back(std::stoi(line.substr(0, line.find_first_of(","))));
 						line = line.substr(line.find_first_of(",") + 1);
-						std::cout << backgroundLayer[i][j] << " - ";
 					}
 					backgroundLayer.push_back(vecLine);
-					std::cout << std::endl;
-					line = line.substr(line.find_first_of("\n") + 1);
+					if( i != rows - 1)
+						line = line.substr(line.find_first_of(".") + 1);
 				}
 			}
 			if (lineHead == "misc")
@@ -91,11 +91,10 @@ void ResourceLoader::loadRoom(std::string roomName, std::string path)
 					{
 						vecLine.push_back(std::stoi(line.substr(0, line.find_first_of(","))));
 						line = line.substr(line.find_first_of(",") + 1);
-						std::cout << miscLayer[i][j] << " - ";
 					}
 					miscLayer.push_back(vecLine);
-					std::cout << std::endl;
-					line = line.substr(line.find_first_of("\n") + 1);
+					if (i != rows - 1)
+						line = line.substr(line.find_first_of(".") + 1);
 				}
 			}
 			if (lineHead == "platforms")
@@ -107,16 +106,16 @@ void ResourceLoader::loadRoom(std::string roomName, std::string path)
 					{
 						vecLine.push_back(std::stoi(line.substr(0, line.find_first_of(","))));
 						line = line.substr(line.find_first_of(",") + 1);
-						std::cout << platformsLayer[i][j] << " - ";
 					}
 					platformsLayer.push_back(vecLine);
-					std::cout << std::endl;
-					line = line.substr(line.find_first_of("\n") + 1);
+					if (i != rows - 1)
+						line = line.substr(line.find_first_of(".") + 1);
 				}
 			}
 		}
 
-		m_roomMap[roomName] = Room(columns, rows, backgroundLayer, miscLayer, platformsLayer, *getImage("lv1_tileset"));
+		Room room = Room(columns, rows, backgroundLayer, miscLayer, platformsLayer, getImage("lv1_tileset"));
+		m_roomMap[roomName] = room;
 	}
 }
 
@@ -132,7 +131,7 @@ sf::Image* ResourceLoader::getImage(std::string imageName)
 
 Room * ResourceLoader::getRoom(std::string roomName)
 {
-	return nullptr;
+	return &m_roomMap[roomName];
 }
 
 void ResourceLoader::handleRoomFileLine(Room& room, std::string line)

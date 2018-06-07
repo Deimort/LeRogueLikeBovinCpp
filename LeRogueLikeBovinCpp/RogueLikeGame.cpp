@@ -13,6 +13,7 @@ RogueLikeGame::~RogueLikeGame()
 {
 	delete m_gameContainer;
 	delete m_resourceLoader;
+	m_statesList.clear();
 }
 
 
