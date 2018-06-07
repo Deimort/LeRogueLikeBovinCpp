@@ -5,11 +5,11 @@ Room::Room()
 	// Construct an empty room
 }
 
-Room::Room(unsigned int columns, unsigned int rows, std::vector<std::vector<int>> backgroundLayer, std::vector<std::vector<int>> miscLayer, std::vector<std::vector<int>> platformsLayer, sf::Image* textureImage) :
+Room::Room(unsigned int columns, unsigned int rows, std::vector<std::vector<int>> backgroundLayer, std::vector<std::vector<int>> miscLayer, std::vector<std::vector<int>> platformsLayer, sf::Texture* texture) :
 	m_width(columns),
 	m_height(rows)
 {
-	m_tileSet.loadFromImage(*textureImage);
+	m_tileSet = texture;
 
 	m_arrayMap["background"] = sf::VertexArray(sf::Quads, rows*columns * 4U);
 	m_arrayMap["misc"] = sf::VertexArray(sf::Quads, rows*columns * 4U);
@@ -26,7 +26,7 @@ Room::~Room()
 void Room::drawLayerAt(float x, float y, std::string layerName, sf::RenderTarget & target, sf::RenderStates states) const
 {
 	states.transform.translate(x, y);
-	states.texture = &m_tileSet;
+	states.texture = m_tileSet;
 	target.draw(m_arrayMap.at(layerName), states);
 }
 
@@ -72,7 +72,7 @@ void Room::buildLayer(std::string layerName, int rows, int columns, std::vector<
 
 sf::Vector2f Room::makeTextureCoordsFromId(int id, int cornerId) //CornerId is numeroted from 0 to 3 clockwise
 {
-	int tileSetWidth = m_tileSet.getSize().x / 64;
+	int tileSetWidth = m_tileSet->getSize().x / 64;
 	int tu = 64*(id % tileSetWidth);
 	int tv =  64*(id / tileSetWidth);
 	if (cornerId == 1 || cornerId == 2)

@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="ButtonInput.cpp" />
     <ClCompile Include="DrawableHandled.cpp" />
@@ -146,7 +147,6 @@
     <ClCompile Include="Solid.cpp" />
     <ClCompile Include="SolidHandled.cpp" />
     <ClCompile Include="SolidHandler.cpp" />
-    <ClCompile Include="TileSet.cpp" />
     <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="UpdatableHandler.cpp" />
     <ClCompile Include="UpdatableHandled.cpp" />
@@ -154,6 +154,7 @@
     <ClCompile Include="WidgetButton.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="ButtonInput.h" />
     <ClInclude Include="DrawableHandled.h" />
@@ -176,7 +177,6 @@
     <ClInclude Include="Solid.h" />
     <ClInclude Include="SolidHandled.h" />
     <ClInclude Include="SolidHandler.h" />
-    <ClInclude Include="TileSet.h" />
     <ClInclude Include="Updatable.h" />
     <ClInclude Include="UpdatableHandler.h" />
     <ClInclude Include="UpdatableHandled.h" />

@@ -2,6 +2,7 @@
 
 #include "Entity.h"
 #include "InputHandler.h"
+#include "Animation.h"
 #include "SFML/Graphics.hpp"
 
 class Player : public Entity
@@ -14,13 +15,15 @@ public:
 	void update() override;
 	void onCollide(Solid &other) override;
 	void moveBy(float x, float y) override;
+	void setAnimation(Animation a);
 
 private:
 	InputHandler m_inputHandler;
-	sf::RectangleShape player;
+	sf::RectangleShape player; // TODO remove
+	Animation m_animation;
 
 	void applyGravity();
 
-	bool m_isOnGround, m_wasOnGround;
+	bool m_isOnGround, m_wasOnGround, m_flip;
 };
 
