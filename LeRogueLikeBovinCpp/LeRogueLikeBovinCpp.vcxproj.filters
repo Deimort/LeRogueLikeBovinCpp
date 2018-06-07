@@ -88,6 +88,12 @@
     <Filter Include="Fichiers d%27en-tête\roguelike\resources">
       <UniqueIdentifier>{9f1f4d4e-9f66-41e6-bd4c-9f9bfcb0ff1a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\roguelike\fx">
+      <UniqueIdentifier>{815b11a5-c946-4c00-b531-f479e55f192a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\roguelike\fx">
+      <UniqueIdentifier>{92815a8f-7295-403d-b19a-38f8b753cb7e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InGame.cpp">
@@ -177,6 +183,9 @@
     <ClCompile Include="Room.cpp">
       <Filter>Src\roguelike\resources</Filter>
     </ClCompile>
+    <ClCompile Include="Ray.cpp">
+      <Filter>Src\roguelike\fx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
@@ -262,6 +271,9 @@
     </ClInclude>
     <ClInclude Include="Room.h">
       <Filter>Fichiers d%27en-tête\roguelike\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>Fichiers d%27en-tête\roguelike\fx</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

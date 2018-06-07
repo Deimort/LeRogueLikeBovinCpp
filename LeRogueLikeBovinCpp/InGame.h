@@ -7,6 +7,7 @@
 #include "Wall.h"
 #include "Room.h"
 #include "Player.h"
+#include "Ray.h"
 #include <iostream>
 
 class InGame : public GameState
@@ -29,6 +30,7 @@ private:
 	sf::View m_gameView;
 	sf::View m_minimap;
 
+	sf::VertexArray line;
 
 	Room m_room; //TODO remove
 

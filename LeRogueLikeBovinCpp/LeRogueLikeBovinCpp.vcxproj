@@ -140,6 +140,7 @@
     <ClCompile Include="InputOptionMenu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Quadtree.cpp" />
+    <ClCompile Include="Ray.cpp" />
     <ClCompile Include="ResourceLoader.cpp" />
     <ClCompile Include="RogueLikeGame.cpp" />
     <ClCompile Include="Room.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="InputOptionMenu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Quadtree.h" />
+    <ClInclude Include="Ray.h" />
     <ClInclude Include="ResourceLoader.h" />
     <ClInclude Include="RogueLikeGame.h" />
     <ClInclude Include="Room.h" />

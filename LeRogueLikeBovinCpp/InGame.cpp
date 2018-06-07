@@ -1,7 +1,8 @@
 #include "InGame.h"
 
 InGame::InGame(sf::RenderWindow* gameContainer, ResourceLoader* resourceLoader) :
-	GameState(gameContainer, resourceLoader)
+	GameState(gameContainer, resourceLoader),
+	line(sf::Lines)
 {
 }
 
@@ -23,8 +24,16 @@ void InGame::init()
 	m_createdInstance.push_back(wall);
 	Wall* wall4 = new Wall(540, 320, 100, 48, m_drawableHandler, m_solidHandler);
 	m_createdInstance.push_back(wall);
+
 	m_player = new Player(100, 200, m_drawableHandler, m_updatableHandler, m_solidHandler, m_inputHandler);
 	m_createdInstance.push_back(m_player);
+
+	Ray ray = Ray(580, 490, 650, 490);
+
+	std::cout << ray.intersects(sf::FloatRect(0,480,640,48)) << std::endl;
+
+	line.append(sf::Vertex(sf::Vector2f(ray.m_x1, ray.m_y1), sf::Color::Red));
+	line.append(sf::Vertex(sf::Vector2f(ray.m_x2, ray.m_y2), sf::Color::Red));
 
 	m_gameView = sf::View(sf::Vector2f(m_player->getCenterX(), m_player->getCenterY()), sf::Vector2f(1280, 720));
 	m_minimap = sf::View(sf::Vector2f(m_player->getCenterX(), m_player->getCenterY()), sf::Vector2f(2560, 1440));
@@ -84,9 +93,11 @@ void InGame::render()
 	//TEST
 	m_gameContainer->draw(m_room);
 	//END
-
+	m_gameContainer->draw(line);
 	m_gameContainer->setView(m_minimap); // Affichage de la carte
 	m_drawableHandler.drawAll(m_gameContainer);
+
+	
 
 	m_gameContainer->display();
 
