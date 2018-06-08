@@ -3,6 +3,7 @@
 #include "Entity.h"
 #include "InputHandler.h"
 #include "Animation.h"
+#include "ResourceLoader.h"
 #include "SFML/Graphics.hpp"
 
 class Player : public Entity
@@ -15,12 +16,14 @@ public:
 	void update() override;
 	void onCollide(Solid &other) override;
 	void moveBy(float x, float y) override;
-	void setAnimation(Animation a);
+	void loadAnimations(ResourceLoader& rsLoader);
 
 private:
 	InputHandler m_inputHandler;
 	sf::RectangleShape player; // TODO remove
-	Animation m_animation;
+	std::map<std::string, Animation> m_animations;
+	std::string m_currentState = "idle", m_lastFrameState = "idle";
+	int m_stateFrameTimer = 0;
 
 	void applyGravity();
 

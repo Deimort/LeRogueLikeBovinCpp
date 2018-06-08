@@ -19,6 +19,11 @@ void ResourceLoader::loadAll()
 
 	/// PHILIPPE ANIMATIONS ///
 	loadTexture("philippe_idle", "assets/player/philippe_idle.png");
+	loadTexture("philippe_running", "assets/player/philippe_walk.png");
+	loadTexture("philippe_prejump", "assets/player/philippe_impulse.png");
+	loadTexture("philippe_ascend", "assets/player/philippe_ascend.png");
+	loadTexture("philippe_descend", "assets/player/philippe_descend.png");
+	loadTexture("philippe_postjump", "assets/player/philippe_land.png");
 
 	/// ROOMS ///
 	loadRoom("room0001", "assets/rooms/room_0001.room");
