@@ -2,10 +2,11 @@
 
 Player::Player(float x, float y, DrawableHandler & drawableHandler, UpdatableHandler & updatableHandler, SolidHandler & solidHandler, InputHandler &inputHandler):
 	Entity(x, y, 64, 64, drawableHandler, updatableHandler, solidHandler),
+	Summoner(&solidHandler, &drawableHandler, &updatableHandler),
 	m_inputHandler(inputHandler),
-	player(sf::Vector2f(64, 64))
+	player(sf::Vector2f(200, 200))
 {
-	player.setPosition(x, y);
+	player.setPosition(getCenterX() - 100, getCenterY() - 100);
 }
 
 Player::~Player()
@@ -22,7 +23,7 @@ void Player::draw(sf::RenderTarget &target, sf::RenderStates states) const
 		states.transform.translate(-64, 0); // Correction du décalage produit par le scale
 	}
 	
-	//target.draw(player);
+	target.draw(player);
 	target.draw(sprite, states);
 	
 }
@@ -30,6 +31,10 @@ void Player::draw(sf::RenderTarget &target, sf::RenderStates states) const
 void Player::update()
 {
 	Entity::update();
+
+	/// Updating attack cooldown ///
+	m_attackCD --;
+	if (m_attackCD < 0) { m_attackCD = 0; }
 
 	/// Updating animation & states///
 	m_stateFrameTimer++;
@@ -63,7 +68,7 @@ void Player::update()
 	}
 	else if (m_currentState == "postjump")
 	{
-		if (m_stateFrameTimer >= 8)
+		if (m_stateFrameTimer >= 9)
 			m_currentState = "idle";
 	}
 	else
@@ -99,16 +104,24 @@ void Player::update()
 	if (m_currentState != m_lastFrameState)
 		m_animations.at(m_currentState).reset();
 
+	if (m_inputHandler.isAttacking() && m_attackCD == 0)
+	{
+		m_solidHandler->attack(Attack{PHYSIC, sf::FloatRect(getCenterX() - 100, getCenterY()-100, 200, 200), 0, true, true});
+		m_attackCD = 10;
+	}
+
 	/// Resetting onTheGround ///
 	m_wasOnGround = m_isOnGround;
 	m_isOnGround = false;
-
-	std::cout << m_isOnGround << " - " << m_currentState << std::endl;
 }
 
 void Player::onCollide(Solid &other)
 {
 
+}
+
+void Player::onHit(Attack attack)
+{
 }
 
 void Player::applyGravity()

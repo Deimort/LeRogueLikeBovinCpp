@@ -11,6 +11,10 @@ ResourceLoader::~ResourceLoader()
 
 void ResourceLoader::loadAll()
 {
+	/// MAIN MENU BACKGROUND ///
+
+	//TODO load main menu background
+
 	/// FONTS ///
 	loadFont("MainFont", "assets/fonts/dpcomic.ttf");
 
@@ -24,6 +28,10 @@ void ResourceLoader::loadAll()
 	loadTexture("philippe_ascend", "assets/player/philippe_ascend.png");
 	loadTexture("philippe_descend", "assets/player/philippe_descend.png");
 	loadTexture("philippe_postjump", "assets/player/philippe_land.png");
+
+	/// BAT ANIMATIONS ///
+
+	//TODO load bat animations
 
 	/// ROOMS ///
 	loadRoom("room0001", "assets/rooms/room_0001.room");

@@ -11,6 +11,7 @@ public:
 
 	void draw(sf::RenderTarget &target, sf::RenderStates states = sf::RenderStates::Default) const override;
 	void onCollide(Solid &other) override;
+	void onHit(Attack attack) override;
 
 private:
 	sf::RectangleShape m_rectangle;

@@ -42,3 +42,8 @@ void Wall::onCollide(Solid &other)
 		other.moveBy(getRight() - other.getX(), 0);
 	}
 }
+
+void Wall::onHit(Attack attack)
+{
+	std::cout << "Ouille" << std::endl;
+}

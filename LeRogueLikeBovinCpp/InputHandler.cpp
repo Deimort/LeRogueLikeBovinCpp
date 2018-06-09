@@ -113,6 +113,27 @@ bool InputHandler::isJumping()
 	}
 }
 
+bool InputHandler::isAttacking()
+{
+	int controllerId = m_inputConfig->getCurrentController();
+
+	/*
+	Keyboard section
+	*/
+	if (controllerId == -1 || !sf::Joystick::isConnected(controllerId))
+	{
+		return sf::Keyboard::isKeyPressed(m_inputConfig->getKeyFor("attack"));
+	}
+
+	/*
+	Joystick section
+	*/
+	else
+	{
+		return sf::Joystick::isButtonPressed(controllerId, m_inputConfig->getButtonFor("attack"));
+	}
+}
+
 bool InputHandler::isMovingDown()
 {
 	return sf::Joystick::isButtonPressed(2, 0) && getYAxisValue() > 0;

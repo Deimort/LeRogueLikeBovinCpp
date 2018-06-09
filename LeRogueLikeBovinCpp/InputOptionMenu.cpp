@@ -24,15 +24,18 @@ void InputOptionMenu::init()
 	m_buttonList.push_back(ButtonInput("down", m_gameContainer->getSize().x/2 -150, 100, 300, 50, m_inputConfig, *font));
 	m_buttonList.push_back(ButtonInput("left", m_gameContainer->getSize().x / 2 - 150, 150, 300, 50, m_inputConfig, *font));
 	m_buttonList.push_back(ButtonInput("right", m_gameContainer->getSize().x / 2 - 150, 200, 300, 50, m_inputConfig, *font));
+	m_buttonList.push_back(ButtonInput("attack", m_gameContainer->getSize().x / 2 - 150, 250, 300, 50, m_inputConfig, *font));
+	m_buttonList.push_back(ButtonInput("spell", m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, m_inputConfig, *font));
+
 	
 	int currentController = m_inputConfig.getCurrentController();
 	if (currentController == -1 || !sf::Joystick::isConnected(currentController))
 	{
-		m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, *font, "Select a controlller", -1);
+		m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 500, 300, 50, *font, "Select a controlller", -1);
 	}
 	else
 	{
-		m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 300, 300, 50, *font, sf::Joystick::getIdentification(currentController).name, currentController);
+		m_controllerSelector = DropdownMenu(m_gameContainer->getSize().x / 2 - 150, 500, 300, 50, *font, sf::Joystick::getIdentification(currentController).name, currentController);
 	}
 	
 	for (int i = 0; i < 8; i++)

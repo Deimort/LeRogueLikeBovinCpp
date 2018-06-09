@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SFML/Graphics/Rect.hpp"
+#include "Attack.h"
 
 class Solid
 {
@@ -8,6 +9,9 @@ public:
 	Solid(float x, float y, float w, float h);
 	~Solid();
 
+
+	virtual void onHit(Attack attack) = 0;
+	virtual bool isHit(Attack attack);
 	virtual void onCollide(Solid &other) = 0;
 	virtual bool isColliding(Solid &other);
 	

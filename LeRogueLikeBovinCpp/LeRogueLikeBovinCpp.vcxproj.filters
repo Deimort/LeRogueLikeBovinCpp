@@ -94,6 +94,9 @@
     <Filter Include="Src\roguelike\fx">
       <UniqueIdentifier>{92815a8f-7295-403d-b19a-38f8b753cb7e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\roguelike\attack">
+      <UniqueIdentifier>{164e8fb3-45f9-4385-8bfc-98a6b6485a5c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InGame.cpp">
@@ -186,6 +189,9 @@
     <ClCompile Include="Ray.cpp">
       <Filter>Src\roguelike\fx</Filter>
     </ClCompile>
+    <ClCompile Include="Summoner.cpp">
+      <Filter>Src\roguelike\interfaces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
@@ -274,6 +280,12 @@
     </ClInclude>
     <ClInclude Include="Ray.h">
       <Filter>Fichiers d%27en-tête\roguelike\fx</Filter>
+    </ClInclude>
+    <ClInclude Include="Summoner.h">
+      <Filter>Fichiers d%27en-tête\roguelike\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Attack.h">
+      <Filter>Fichiers d%27en-tête\roguelike\attack</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

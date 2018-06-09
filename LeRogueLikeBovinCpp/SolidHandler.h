@@ -3,6 +3,7 @@
 #include <vector>
 #include "DynamicSolid.h"
 #include "Quadtree.h"
+#include  "Attack.h"
 #include <iostream>
 
 class SolidHandler
@@ -13,7 +14,7 @@ public:
 
 	void addStaticSolid(Solid* staticSolid);
 	void addDynamicSolid(DynamicSolid* dynamicSolid);
-
+	void attack(Attack attack);
 	void collideAll();
 	void clear();
 
