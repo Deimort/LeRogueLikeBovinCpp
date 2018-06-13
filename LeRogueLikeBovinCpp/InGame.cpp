@@ -84,9 +84,9 @@ void InGame::render()
 	//END
 
 	m_gameContainer->setView(m_minimap); // Affichage de la carte
-	m_resourceLoader->getRoom("room0001")->drawLayerAt(0, 0, "background", *m_gameContainer); // Background drawing
+	//m_resourceLoader->getRoom("room0001")->drawLayerAt(0, 0, "background", *m_gameContainer); // Background drawing
 	m_drawableHandler.drawAll(m_gameContainer);
-	m_resourceLoader->getRoom("room0001")->drawLayerAt(0, 0, "misc", *m_gameContainer); // Misc. drawing
+	//m_resourceLoader->getRoom("room0001")->drawLayerAt(0, 0, "misc", *m_gameContainer); // Misc. drawing
 	m_resourceLoader->getRoom("room0001")->drawLayerAt(0, 0, "platforms", *m_gameContainer); // Platforms and walls drawing;
 	m_gameContainer->display();
 
