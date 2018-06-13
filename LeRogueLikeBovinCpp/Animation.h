@@ -11,6 +11,7 @@ public:
 	void update();
 	sf::Sprite getCurrentFrame() const;
 	sf::Sprite getFrame(int frameId) const;
+	void reset();
 private:
 	int m_frameWidth;
 	int m_currentFrame;

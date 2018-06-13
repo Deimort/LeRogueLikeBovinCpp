@@ -23,15 +23,9 @@ void InGame::init()
 	m_createdInstance.push_back(wall);
 	Wall* wall4 = new Wall(540, 320, 100, 48, m_drawableHandler, m_solidHandler);
 	m_createdInstance.push_back(wall);
+
 	m_player = new Player(100, 200, m_drawableHandler, m_updatableHandler, m_solidHandler, m_inputHandler);
-
-
-	Animation philippeIdleAnimation;
-	std::vector<int> philippeIdleAnimationLength;
-	philippeIdleAnimationLength.push_back(30);
-	philippeIdleAnimationLength.push_back(30);
-	philippeIdleAnimation.build(64,2, philippeIdleAnimationLength, m_resourceLoader->getTexture("philippe_idle"));
-	m_player->setAnimation(philippeIdleAnimation);
+	m_player->loadAnimations(*m_resourceLoader);
 	m_createdInstance.push_back(m_player);
 
 	m_gameView = sf::View(sf::Vector2f(m_player->getCenterX(), m_player->getCenterY()), sf::Vector2f(1280, 720));

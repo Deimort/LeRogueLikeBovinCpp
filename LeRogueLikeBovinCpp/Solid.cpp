@@ -13,6 +13,11 @@ Solid::~Solid()
 {
 }
 
+bool Solid::isHit(Attack attack)
+{
+	return (attack.bounds.intersects(m_boundingBox));
+}
+
 bool Solid::isColliding(Solid &other)
 {
 	return m_boundingBox.intersects(other.m_boundingBox) && &other != this;

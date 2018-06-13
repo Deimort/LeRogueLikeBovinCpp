@@ -40,3 +40,9 @@ sf::Sprite Animation::getFrame(int frameId) const
 {
 	return sf::Sprite(*m_texture, sf::IntRect(frameId * m_frameWidth, 0, m_frameWidth, m_texture->getSize().y));
 }
+
+void Animation::reset()
+{
+	m_currentFrame = 0;
+	m_refreshCount = 0;
+}

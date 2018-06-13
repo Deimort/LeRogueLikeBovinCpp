@@ -23,6 +23,17 @@ void SolidHandler::addDynamicSolid(DynamicSolid* dynamicSolid)
 
 }
 
+void SolidHandler::attack(Attack attack)
+{
+	for (int i(0); i < m_solidList.size(); i++)
+	{
+		if (m_solidList[i]->isHit(attack))
+		{
+			m_solidList[i]->onHit(attack);
+		}
+	}
+}
+
 void SolidHandler::collideAll()
 {
 	m_quadtree.clear();

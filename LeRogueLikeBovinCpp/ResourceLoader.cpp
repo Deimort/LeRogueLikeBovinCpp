@@ -7,10 +7,17 @@ ResourceLoader::ResourceLoader()
 
 ResourceLoader::~ResourceLoader()
 {
+	m_musicMap.clear();
 }
 
 void ResourceLoader::loadAll()
 {
+	/// MAIN MENU BACKGROUND ///
+	loadTexture("mainMenu_background", "assets/misc/mainMenu_background.png");
+
+	/// MUSICS ///
+	loadMusic("mainMenu", "assets/music/mainMenu_music.ogg");
+
 	/// FONTS ///
 	loadFont("MainFont", "assets/fonts/dpcomic.ttf");
 
@@ -19,6 +26,15 @@ void ResourceLoader::loadAll()
 
 	/// PHILIPPE ANIMATIONS ///
 	loadTexture("philippe_idle", "assets/player/philippe_idle.png");
+	loadTexture("philippe_running", "assets/player/philippe_walk.png");
+	loadTexture("philippe_prejump", "assets/player/philippe_impulse.png");
+	loadTexture("philippe_ascend", "assets/player/philippe_ascend.png");
+	loadTexture("philippe_descend", "assets/player/philippe_descend.png");
+	loadTexture("philippe_postjump", "assets/player/philippe_land.png");
+
+	/// BAT ANIMATIONS ///
+
+	//TODO load bat animations
 
 	/// ROOMS ///
 	loadRoom("room0001", "assets/rooms/room_0001.room");
@@ -35,6 +51,7 @@ void ResourceLoader::loadTexture(std::string textureName, std::string path)
 {
 	sf::Texture texture;
 	texture.loadFromFile(path);
+	texture.setSmooth(false);
 	m_textureMap[textureName] = texture;
 }
 
@@ -125,6 +142,12 @@ void ResourceLoader::loadRoom(std::string roomName, std::string path)
 	}
 }
 
+void ResourceLoader::loadMusic(std::string musicName, std::string path)
+{
+	m_musicMap[musicName] = new sf::Music();
+	m_musicMap[musicName]->openFromFile(path);
+}
+
 sf::Font* ResourceLoader::getFont(std::string fontName)
 {
 	return &m_fontMap[fontName];
@@ -135,12 +158,17 @@ sf::Texture* ResourceLoader::getTexture(std::string textureName)
 	return &m_textureMap[textureName];
 }
 
-Room * ResourceLoader::getRoom(std::string roomName)
+Room* ResourceLoader::getRoom(std::string roomName)
 {
 	return &m_roomMap[roomName];
 }
 
-void ResourceLoader::handleRoomFileLine(Room& room, std::string line)
+sf::Music* ResourceLoader::getMusic(std::string musicName)
+{
+	return m_musicMap.at(musicName);
+}
+
+void ResourceLoader::handleRoomFileLine(Room& room, std::string line)//TODO remove
 {
 
 }

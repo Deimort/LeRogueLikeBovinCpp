@@ -14,14 +14,14 @@ protected:
 	void init() override;
 	void update() override;
 	void render() override;
-	sf::Text m_startMessage;
-	sf::Text m_optionMessage;
 
 private:
 	std::vector<WidgetButton> m_buttonsList;
 
 	int m_currentButton;
-
+	sf::Texture* m_backgroundTexture;
+	sf::Sprite m_backgroundSprite;
 	sf::Clock m_buttonCooldown;
+	sf::Music* m_music;
 };
 

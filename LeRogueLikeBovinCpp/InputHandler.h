@@ -14,6 +14,7 @@ public:
 	float getXAxisValue();
 	float getYAxisValue();
 	bool isJumping();
+	bool isAttacking();
 	bool isMovingDown();
 
 private:
