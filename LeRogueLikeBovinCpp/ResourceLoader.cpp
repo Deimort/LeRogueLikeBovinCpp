@@ -7,13 +7,16 @@ ResourceLoader::ResourceLoader()
 
 ResourceLoader::~ResourceLoader()
 {
+	m_musicMap.clear();
 }
 
 void ResourceLoader::loadAll()
 {
 	/// MAIN MENU BACKGROUND ///
+	loadTexture("mainMenu_background", "assets/misc/mainMenu_background.png");
 
-	//TODO load main menu background
+	/// MUSICS ///
+	loadMusic("mainMenu", "assets/music/mainMenu_music.ogg");
 
 	/// FONTS ///
 	loadFont("MainFont", "assets/fonts/dpcomic.ttf");
@@ -48,6 +51,7 @@ void ResourceLoader::loadTexture(std::string textureName, std::string path)
 {
 	sf::Texture texture;
 	texture.loadFromFile(path);
+	texture.setSmooth(false);
 	m_textureMap[textureName] = texture;
 }
 
@@ -138,6 +142,12 @@ void ResourceLoader::loadRoom(std::string roomName, std::string path)
 	}
 }
 
+void ResourceLoader::loadMusic(std::string musicName, std::string path)
+{
+	m_musicMap[musicName] = new sf::Music();
+	m_musicMap[musicName]->openFromFile(path);
+}
+
 sf::Font* ResourceLoader::getFont(std::string fontName)
 {
 	return &m_fontMap[fontName];
@@ -148,12 +158,17 @@ sf::Texture* ResourceLoader::getTexture(std::string textureName)
 	return &m_textureMap[textureName];
 }
 
-Room * ResourceLoader::getRoom(std::string roomName)
+Room* ResourceLoader::getRoom(std::string roomName)
 {
 	return &m_roomMap[roomName];
 }
 
-void ResourceLoader::handleRoomFileLine(Room& room, std::string line)
+sf::Music* ResourceLoader::getMusic(std::string musicName)
+{
+	return m_musicMap.at(musicName);
+}
+
+void ResourceLoader::handleRoomFileLine(Room& room, std::string line)//TODO remove
 {
 
 }
